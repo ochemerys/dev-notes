@@ -1,0 +1,27 @@
+$ docker stack --help
+
+
+$ docker stack deploy -c viz.yml viz 
+Output:
+Creating network viz_default
+Creating service viz_viz
+
+$ docker stack services viz
+Output:
+ID                  NAME                MODE                REPLICAS            IMAGE                             PORTS
+fs9q9rhef31w        viz_viz             replicated          1/1                 dockersamples/visualizer:latest   
+
+$ docker stack ps viz
+Output:
+ID                  NAME                IMAGE                             NODE                    DESIRED STATE       CURRENT STATE           ERROR               PORTS
+y2ptyt3ozifu        viz_viz.1           dockersamples/visualizer:latest   oleks-Precision-T1500   Running             Running 4 minutes ago                       
+
+$ docker stack deploy -c viz.yml viz 
+Output:
+Updating service viz_viz (id: fs9q9rhef31w0m8hnfl4314on)
+
+$ docker stack rm viz
+Output:
+Removing service viz_viz
+Removing network viz_default
+

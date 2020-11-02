@@ -1,0 +1,119 @@
+[
+    {
+        "ID": "jmf1cy4r1nl0czwhfs6r3cs4a",
+        "Version": {
+            "Index": 4514
+        },
+        "CreatedAt": "2019-09-02T21:17:25.43306977Z",
+        "UpdatedAt": "2019-09-02T21:18:42.333343492Z",
+        "Spec": {
+            "Name": "customer",
+            "Labels": {},
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "swarmgs/customer:latest@sha256:843f01ea4889d33e8832332b8c436e8af3d795255b54a8c6543ba4dde9cbd607",
+                    "Init": false,
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {},
+                    "Isolation": "default"
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Platforms": [
+                        {
+                            "Architecture": "amd64",
+                            "OS": "linux"
+                        }
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "xsnixwhxdtj8hth3hmnv7a31h"
+                    }
+                ],
+                "ForceUpdate": 0,
+                "Runtime": "container"
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 2
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip"
+            }
+        },
+        "PreviousSpec": {
+            "Name": "customer",
+            "Labels": {},
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "swarmgs/customer:latest@sha256:843f01ea4889d33e8832332b8c436e8af3d795255b54a8c6543ba4dde9cbd607",
+                    "Init": false,
+                    "DNSConfig": {},
+                    "Isolation": "default"
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "Placement": {
+                    "Platforms": [
+                        {
+                            "Architecture": "amd64",
+                            "OS": "linux"
+                        }
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "xsnixwhxdtj8hth3hmnv7a31h"
+                    }
+                ],
+                "ForceUpdate": 0,
+                "Runtime": "container"
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 1
+                }
+            },
+            "EndpointSpec": {
+                "Mode": "vip"
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip"
+            },
+            "VirtualIPs": [
+                {
+                    "NetworkID": "xsnixwhxdtj8hth3hmnv7a31h",
+                    "Addr": "10.0.9.36/24"
+                }
+            ]
+        }
+    }
+]

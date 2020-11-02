@@ -1,0 +1,52 @@
+mapping host folder to cotainer filesystem with volume:
+----------------------------------------------------------
+$ docker run --rm -d -p 8088:80 -v ~/DEV/TEMP/test-site:/usr/share/nginx/html --name nginx-container nginx
+
+	--rm	remove after container is stoped
+	-d	disconnected mode
+	-p	publish port
+
+$ docker diff nginx
+display files in the container 
+-------------------------------------------
+$ docker exec nginx-container ls /usr/share/nginx/html
+
+open shell or bash inside of container
+------------------------------------------
+$ docker exec -it nginx-container sh
+or
+$ docker exec -it nginx-container sh
+
+	-it	interactive mode
+
+get image history
+--------------------------------
+$ docker history nginx
+
+get filesystem changes of running containers
+---------------------------------------------
+$ docker diff nginx-container
+it will list files which were copied or changed when container was running
+
+copy files to docker container
+--------------------------------
+$ docker cp ~DEV/TEMP/test-site/. nginx:/usr/share/nginx/html
+
+
+list all running containers id-s
+---------------------------------
+$ docker ps -q
+
+stop all running containers
+----------------------------
+$ docker stop $(docker ps -q)
+
+remove all stopped containers
+------------------------------
+$ docker rm $(docker ps -a -q)
+
+
+
+
+
+

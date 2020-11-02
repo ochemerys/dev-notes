@@ -1,0 +1,29 @@
+
+run containers included in docker-compose.yml file
+-----------------------------------------------------
+$ docker-compose up
+
+list all containers of ocker-compose.yml
+------------------------------------------
+$ docker-compose ps
+
+stop container web described as service in docker-compose.yml file
+-------------------------------------------------------------------
+$ docker-compose stop web
+
+start container web described as service in docker-compose.yml file
+-------------------------------------------------------------------
+$ docker-compose start web
+
+remove containers (stopped) included in docker-compose.yml file
+including volumes
+---------------------------------------------------------------
+$ docker-compose rm -v 
+
+remove containers included in docker-compose.yml file
+including volumes and networks
+-----------------------------------------------------
+$ docker-compose down
+
+
+

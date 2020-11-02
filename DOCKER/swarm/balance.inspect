@@ -1,0 +1,161 @@
+[
+    {
+        "ID": "8rr920ukd8iw5hh8eygatja4d",
+        "Version": {
+            "Index": 4529
+        },
+        "CreatedAt": "2019-09-02T18:05:40.206248288Z",
+        "UpdatedAt": "2019-09-02T21:35:28.64224754Z",
+        "Spec": {
+            "Name": "balance",
+            "Labels": {},
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "swarmgs/balance:latest@sha256:d87f02d2f6464eabe6b0b9db2d34c5329846249b990db652ce047f00b3ea64e6",
+                    "Env": [
+                        "MYWEB_CUSTOMER_API=customer:3000"
+                    ],
+                    "Init": false,
+                    "StopGracePeriod": 10000000000,
+                    "DNSConfig": {},
+                    "Isolation": "default"
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "Delay": 5000000000,
+                    "MaxAttempts": 0
+                },
+                "Placement": {
+                    "Platforms": [
+                        {
+                            "Architecture": "amd64",
+                            "OS": "linux"
+                        }
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "xsnixwhxdtj8hth3hmnv7a31h"
+                    }
+                ],
+                "ForceUpdate": 0,
+                "Runtime": "container"
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 3
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "RollbackConfig": {
+                "Parallelism": 1,
+                "FailureAction": "pause",
+                "Monitor": 5000000000,
+                "MaxFailureRatio": 0,
+                "Order": "stop-first"
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 3000,
+                        "PublishedPort": 5000,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "PreviousSpec": {
+            "Name": "balance",
+            "Labels": {},
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "swarmgs/balance:latest@sha256:d87f02d2f6464eabe6b0b9db2d34c5329846249b990db652ce047f00b3ea64e6",
+                    "Env": [
+                        "MYWEB_CUSTOMER_API=customer:3000"
+                    ],
+                    "Init": false,
+                    "DNSConfig": {},
+                    "Isolation": "default"
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "Placement": {
+                    "Platforms": [
+                        {
+                            "Architecture": "amd64",
+                            "OS": "linux"
+                        }
+                    ]
+                },
+                "Networks": [
+                    {
+                        "Target": "xsnixwhxdtj8hth3hmnv7a31h"
+                    }
+                ],
+                "ForceUpdate": 0,
+                "Runtime": "container"
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 2
+                }
+            },
+            "EndpointSpec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 3000,
+                        "PublishedPort": 5000,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            }
+        },
+        "Endpoint": {
+            "Spec": {
+                "Mode": "vip",
+                "Ports": [
+                    {
+                        "Protocol": "tcp",
+                        "TargetPort": 3000,
+                        "PublishedPort": 5000,
+                        "PublishMode": "ingress"
+                    }
+                ]
+            },
+            "Ports": [
+                {
+                    "Protocol": "tcp",
+                    "TargetPort": 3000,
+                    "PublishedPort": 5000,
+                    "PublishMode": "ingress"
+                }
+            ],
+            "VirtualIPs": [
+                {
+                    "NetworkID": "0oh1useo6zwulf5czdg7rbi0z",
+                    "Addr": "10.255.0.17/16"
+                },
+                {
+                    "NetworkID": "xsnixwhxdtj8hth3hmnv7a31h",
+                    "Addr": "10.0.9.2/24"
+                }
+            ]
+        }
+    }
+]

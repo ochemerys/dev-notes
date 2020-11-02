@@ -1,0 +1,26 @@
+display formatted json with jq:
+------------------------------------
+$ cat package.json | jq
+
+scan ports:
+-----------------------------------
+$ nmap -v 192.169.1.69/24
+
+
+filter out content of command
+------------------------------------
+$ docker images | grep nginx
+
+download file
+--------------
+$ curl https://gist.githubusercontent.com/g0t4/fc6a7b62be5a14c5af9df42af2aa2b2b/raw/b9d2475d0cf96d576a355917cb8d6c7f42079539/docker-compose.yml -o docker-compose.yml
+
+display ip address
+----------------------
+$ ip a s
+
+compare files
+----------------------
+$ diff -y ./teamcity/docker-compose.yml ./test-site/docker-compose.yml
+
+

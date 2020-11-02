@@ -1,0 +1,15 @@
+When docker creates a swarm cluster a special overlay network called ingress 
+network is created to properly route external requests outside the cluster to services 
+which are publishing ports. 
+This network exists to serve one purpose only, to facilitate routing such requests.
+
+Even though it shows up in network listings 
+it should not be used as a normal network to discover services 
+which are attached to them 
+or facilitate internal load balancing between these services.
+
+To block such unintentional behavior the following needs to happen:
+	- Disable service discovery in ingress network
+	- Block services explicitly trying to attach to ingress network
+	- Allow only access to published ports 
+	  when traffic is coming to any container via ingress network

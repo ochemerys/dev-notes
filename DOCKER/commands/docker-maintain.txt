@@ -1,0 +1,43 @@
+
+
+$ docker diff nginx
+
+display files in the container 
+-------------------------------------------
+$ docker exec nginx-container ls /usr/share/nginx/html
+
+open shell or bash inside of container
+------------------------------------------
+$ docker exec -it nginx-container sh
+or
+$ docker exec -it nginx-container sh
+
+	-it	interactive mode
+
+
+get image history
+--------------------------------
+$ docker history nginx
+
+
+list all running containers id-s
+---------------------------------
+$ docker ps -q
+
+list all stopped containers
+---------------------------------
+$ docker ps -f status=exited
+
+stop all running containers
+----------------------------
+$ docker stop $(docker ps -q)
+
+remove all stopped containers
+------------------------------
+$ docker rm $(docker ps -a -q)
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+image naming convension:
+=====================================================================================
+
+registry/repo/image(tag)
+---------------------------
+docker.io/redis/latest
+docker.io/nginx/1.33.5
+
+Official images: registry is docker.io or a few companies names (like microsoft)
+
+unofficial images: regestry is person or other company name
+ochemerys/node-express-demo
+
+best practices:
+1. use official regestries as much as possible
+2. keep the images small
+3. if no official image, then build what you need on top of official image
+4. be more specific: do not use latest (latest today can be defferent from latest tomorrow)
+ 
+

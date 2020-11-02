@@ -1,0 +1,52 @@
+
+built in on linux 
+==================
+$ watch
+
+Usage:
+ watch [options] command
+
+Options:
+  -b, --beep             beep if command has a non-zero exit
+  -c, --color            interpret ANSI color and style sequences
+  -d, --differences[=<permanent>]
+                         highlight changes between updates
+  -e, --errexit          exit if command has a non-zero exit
+  -g, --chgexit          exit when output from command changes
+  -n, --interval <secs>  seconds to wait between updates
+  -p, --precise          attempt run command in precise intervals
+  -t, --no-title         turn off header
+  -x, --exec             pass command to exec instead of "sh -c"
+
+ -h, --help     display this help and exit
+ -v, --version  output version information and exit
+
+for mac:
+========
+$ brew install watch
+
+
+usage
+=====
+
+example to watch a command:
+---------------------------
+
+open terminal window to watch docker service ls:
+$ watch -d -n 0.1 docker service ls 
+
+open terminal window to watch docker service ls:
+$ watch -d -n 0.1 docker service ps pay 
+
+then open another terminal window run commands and watch terminal window where watch is running:
+$ docker service scale pay=0
+$ docker service scale pay=3
+$ docker service scale pay=5
+$ docker service update --image swarmgs/payroll:1 pay
+$ docker service update --image swarmgs/payroll:2 pay
+$ docker service update --image swarmgs/payroll:3 pay
+
+
+
+
+

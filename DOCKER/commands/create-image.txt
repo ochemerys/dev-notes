@@ -1,0 +1,32 @@
+
+create image from running container (make a smapshot of container)
+-------------------------------------------------------------------
+$ docker commit nginx-container nginx:my-website
+
+create image from Dockerfile
+-------------------------------
+$ docker build -f Dockerfile -t my-website-df:nginx .
+
+or if we are in the folder where Dockerfile
+
+$ docker build -t my-website-df:nginx .
+
+	-t	tag for the image
+
+prepare image to push to docker hub
+-------------------------------------
+$ docker tag my-website-df:nginx ochemerys/my-website:nginx
+
+push to docker hub
+------------------------
+$ docker push ochemerys/my-website:nginx
+
+to remove all local images
+----------------------------
+$ docker rmi $(docker images -q)
+
+
+list of dangling images (un-tagged or/and without name)
+! dangling images are not listed with docker images command
+--------------------------------------------------------
+$ docker images -f dangling=true

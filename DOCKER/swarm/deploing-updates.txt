@@ -1,0 +1,72 @@
+Help on service update
+----------------------
+https://github.com/docker/docker-ce/blob/master/components/cli/docs/reference/commandline/service_update.md
+
+create service:
+----------------
+$ docker service create --name pay -p 3000:3000 swarmgs/payroll:1
+
+scale service:
+--------------
+$ docker service scale pay=5
+
+see service processes:
+----------------------
+$ docker service ps pay
+
+Output:
+ID                  NAME                IMAGE               NODE                    DESIRED STATE       CURRENT STATE                ERROR               PORTS
+skgbq2qpbmze        pay.1               swarmgs/payroll:1   docker-desktop          Running             Running 4 minutes ago                            
+e4a31659ydut        pay.2               swarmgs/payroll:1   DP390                   Running             Running 2 minutes ago                            
+favt26nme51k        pay.3               swarmgs/payroll:1   DP390                   Running             Running 2 minutes ago                            
+isnm05otx3dt        pay.4               swarmgs/payroll:1   oleks-Precision-T1500   Running             Running 2 minutes ago                            
+4ilkudgwymcs        pay.5               swarmgs/payroll:1   docker-desktop          Running             Running about a minute ago                       
+
+Update a service image version:
+-------------------------------
+$ docker service update --image swarmgs/payroll:2 pay
+
+verify Service converged:
+-------------------------
+$ docker service ps pay
+
+Output:
+ID                  NAME                IMAGE               NODE                    DESIRED STATE       CURRENT STATE                 ERROR               PORTS
+j1zkuzyeftbw        pay.1               swarmgs/payroll:2   oleks-Precision-T1500   Running             Running 33 seconds ago                            
+ug74pswbvq1j         \_ pay.1           swarmgs/payroll:1   oleks-Precision-T1500   Shutdown            Shutdown 36 seconds ago                           
+skgbq2qpbmze         \_ pay.1           swarmgs/payroll:1   docker-desktop          Shutdown            Shutdown about a minute ago                       
+o1u8j7cwv5wj        pay.2               swarmgs/payroll:2   docker-desktop          Running             Running 57 seconds ago                            
+e4a31659ydut         \_ pay.2           swarmgs/payroll:1   DP390                   Shutdown            Shutdown 59 seconds ago                           
+hwuw0a321jzb        pay.3               swarmgs/payroll:2   DP390                   Running             Running 50 seconds ago                            
+favt26nme51k         \_ pay.3           swarmgs/payroll:1   DP390                   Shutdown            Shutdown 53 seconds ago                           
+tr38hwbwxhk0        pay.4               swarmgs/payroll:2   DP390                   Running             Running 41 seconds ago                            
+isnm05otx3dt         \_ pay.4           swarmgs/payroll:1   oleks-Precision-T1500   Shutdown            Shutdown 44 seconds ago                           
+lem1tfmy1wkl        pay.5               swarmgs/payroll:2   docker-desktop          Running             Running about a minute ago                        
+zdy7mgknw71r         \_ pay.5           swarmgs/payroll:1   DP390                   Shutdown            Shutdown about a minute ago                       
+4ilkudgwymcs         \_ pay.5           swarmgs/payroll:1   docker-desktop          Shutdown            Shutdown about a minute ago                       
+
+
+roll image version up to 3 with update delay:
+---------------------------------------------
+$ docker service update --image swarmgs/payroll:3 --update-delay=20s pay
+
+
+roll image version down to 2 with update delay and in parallel:
+---------------------------------------------------------------
+$ docker service update --image swarmgs/payroll:3 --update-delay=10s pay
+
+
+to roll back to the previous version automatically when an update fails. 
+-------------------------------------------------------------------------
+set up a service for automatic rollback, use --update-failure-action=rollback
+
+to refresh swarm without any changes 
+-------------------------------------
+$ docker service update --force pay
+
+to resume pause in update
+-------------------------
+$ docker service update pay
+
+
+

@@ -1,0 +1,236 @@
+oleks@oleks-Precision-T1500:~$ docker image pull redis
+Using default tag: latest
+latest: Pulling from library/redis
+fc7181108d40: Pull complete 
+3e0ac67cad82: Pull complete 
+6ee495cb7235: Pull complete 
+9f7206d08b9d: Pull complete 
+a8354ef8cccb: Pull complete 
+53afb10d81c2: Pull complete 
+Digest: sha256:ca2d9251c2818df48c6598e01a5bdeab46040dc7ab236abe075d7c7343465177
+Status: Downloaded newer image for redis:latest
+oleks@oleks-Precision-T1500:~$ docker system info
+Containers: 1
+ Running: 0
+ Paused: 0
+ Stopped: 1
+Images: 2
+Server Version: 18.09.7
+Storage Driver: overlay2
+ Backing Filesystem: extfs
+ Supports d_type: true
+ Native Overlay Diff: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local
+ Network: bridge host macvlan null overlay
+ Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 894b81a4b802e4eb2a91d1ce216b8817763c29fb
+runc version: 425e105d5a03fabd737a126ad93d62a9eeede87f
+init version: fec3683
+Security Options:
+ apparmor
+ seccomp
+  Profile: default
+Kernel Version: 4.15.0-54-generic
+Operating System: Ubuntu 18.04.2 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 8
+Total Memory: 7.781GiB
+Name: oleks-Precision-T1500
+ID: BHLC:IWUX:2MAZ:HMIV:YAHW:3VXR:V7U6:KFB2:4C5C:Q6CN:QVEP:FVZ7
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Labels:
+Experimental: false
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+Product License: Community Engine
+
+WARNING: No swap limit support
+oleks@oleks-Precision-T1500:~$ docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+redis               latest              3c41ce05add9        2 weeks ago         95MB
+hello-world         latest              fce289e99eb9        6 months ago        1.84kB
+oleks@oleks-Precision-T1500:~$ docker image ls --digest
+unknown flag: --digest
+See 'docker image ls --help'.
+oleks@oleks-Precision-T1500:~$ docker image ls --digests
+REPOSITORY          TAG                 DIGEST                                                                    IMAGE ID            CREATED             SIZE
+redis               latest              sha256:ca2d9251c2818df48c6598e01a5bdeab46040dc7ab236abe075d7c7343465177   3c41ce05add9        2 weeks ago         95MB
+hello-world         latest              sha256:41a65640635299bab090f783209c1e3a3f11934cf7756b09cb2f1e02147c6ed8   fce289e99eb9        6 months ago        1.84kB
+oleks@oleks-Precision-T1500:~$ ls -l /var/lib/docker
+ls: cannot open directory '/var/lib/docker': Permission denied
+oleks@oleks-Precision-T1500:~$ sudo ls -l /var/lib/docker
+[sudo] password for oleks: 
+total 48
+drwx------  2 root root 4096 Jul  1 17:39 builder
+drwx------  4 root root 4096 Jul  1 17:39 buildkit
+drwx------  3 root root 4096 Jul  1 17:41 containers
+drwx------  3 root root 4096 Jul  1 17:39 image
+drwxr-x---  3 root root 4096 Jul  1 17:39 network
+drwx------ 12 root root 4096 Jul  1 20:36 overlay2
+drwx------  4 root root 4096 Jul  1 17:39 plugins
+drwx------  2 root root 4096 Jul  1 17:49 runtimes
+drwx------  2 root root 4096 Jul  1 17:39 swarm
+drwx------  2 root root 4096 Jul  1 20:36 tmp
+drwx------  2 root root 4096 Jul  1 17:39 trust
+drwx------  2 root root 4096 Jul  1 17:39 volumes
+oleks@oleks-Precision-T1500:~$ sudo ls -l /var/lib/docker/overlay2
+total 40
+drwx------ 3 root root 4096 Jul  1 20:36 4e17f062e4dd2997c30018f4b8322bcd7a7e8abe8a35d46df218e7be2c7ccf58
+drwx------ 4 root root 4096 Jul  1 20:36 557746e91462e8a98417b3892dc98e75bd1818b62938a3714ddb326557a52326
+drwx------ 4 root root 4096 Jul  1 20:36 5f29a8b913721d43915a53614fa9af14e1371baba129ffeb2148a0078134b40f
+drwx------ 4 root root 4096 Jul  1 20:36 712cff285ac5291576e285ee7dc6bbefad59c62f27cc70b085289bba072747c1
+drwx------ 4 root root 4096 Jul  1 20:36 d53e7343c76b8ac0a3fa34480d35eb94339b82b6b7e607e20f745c575acc4f08
+drwx------ 4 root root 4096 Jul  1 17:41 d7eea8b70d8178c1868fae517b349a708e257a857bd3247d728f67e3a9807596
+drwx------ 4 root root 4096 Jul  1 17:41 d7eea8b70d8178c1868fae517b349a708e257a857bd3247d728f67e3a9807596-init
+drwx------ 4 root root 4096 Jul  1 20:36 ee575f784b31a3f49d2525bbf7e0787003b8b04c7775a927b6263f9e4a4938e3
+drwx------ 3 root root 4096 Jul  1 17:41 fc9d1ce56053f209ca3188fafbc820c2243722a2c8d12d68f38def11fcd3e7ec
+drwx------ 2 root root 4096 Jul  1 20:36 l
+oleks@oleks-Precision-T1500:~$ docker history redis
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+3c41ce05add9        2 weeks ago         /bin/sh -c #(nop)  CMD ["redis-server"]         0B                  
+<missing>           2 weeks ago         /bin/sh -c #(nop)  EXPOSE 6379                  0B                  
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENTRYPOINT ["docker-entry…   0B                  
+<missing>           2 weeks ago         /bin/sh -c #(nop) COPY file:df205a0ef6e6df89…   374B                
+<missing>           2 weeks ago         /bin/sh -c #(nop) WORKDIR /data                 0B                  
+<missing>           2 weeks ago         /bin/sh -c #(nop)  VOLUME [/data]               0B                  
+<missing>           2 weeks ago         /bin/sh -c mkdir /data && chown redis:redis …   0B                  
+<missing>           2 weeks ago         /bin/sh -c set -ex;   buildDeps='   ca-certi…   36.4MB              
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV REDIS_DOWNLOAD_SHA=21…   0B                  
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV REDIS_DOWNLOAD_URL=ht…   0B                  
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV REDIS_VERSION=5.0.5      0B                  
+<missing>           2 weeks ago         /bin/sh -c set -ex;   fetchDeps="   ca-certi…   3MB                 
+<missing>           2 weeks ago         /bin/sh -c #(nop)  ENV GOSU_VERSION=1.10        0B                  
+<missing>           2 weeks ago         /bin/sh -c groupadd -r redis && useradd -r -…   329kB               
+<missing>           3 weeks ago         /bin/sh -c #(nop)  CMD ["bash"]                 0B                  
+<missing>           3 weeks ago         /bin/sh -c #(nop) ADD file:5ffb798d64089418e…   55.3MB              
+oleks@oleks-Precision-T1500:~$ docker inspect redis
+[
+    {
+        "Id": "sha256:3c41ce05add98e89ff5ef31ec8cf2f5866e2b82fbe1eae057201f7c6f884f23d",
+        "RepoTags": [
+            "redis:latest"
+        ],
+        "RepoDigests": [
+            "redis@sha256:ca2d9251c2818df48c6598e01a5bdeab46040dc7ab236abe075d7c7343465177"
+        ],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2019-06-11T06:42:53.138876898Z",
+        "Container": "a900e140aa90d5ae638955eef0db5c4a5364dd5c3d1980681ae867e8553348e8",
+        "ContainerConfig": {
+            "Hostname": "a900e140aa90",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "6379/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.10",
+                "REDIS_VERSION=5.0.5",
+                "REDIS_DOWNLOAD_URL=http://download.redis.io/releases/redis-5.0.5.tar.gz",
+                "REDIS_DOWNLOAD_SHA=2139009799d21d8ff94fc40b7f36ac46699b9e1254086299f8d3b223ca54a375"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) ",
+                "CMD [\"redis-server\"]"
+            ],
+            "ArgsEscaped": true,
+            "Image": "sha256:46bb4c8500053e743ec3256d6c6b6d673422fae8b95b5fb401781e6d3daa702d",
+            "Volumes": {
+                "/data": {}
+            },
+            "WorkingDir": "/data",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "DockerVersion": "18.06.1-ce",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "6379/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.10",
+                "REDIS_VERSION=5.0.5",
+                "REDIS_DOWNLOAD_URL=http://download.redis.io/releases/redis-5.0.5.tar.gz",
+                "REDIS_DOWNLOAD_SHA=2139009799d21d8ff94fc40b7f36ac46699b9e1254086299f8d3b223ca54a375"
+            ],
+            "Cmd": [
+                "redis-server"
+            ],
+            "ArgsEscaped": true,
+            "Image": "sha256:46bb4c8500053e743ec3256d6c6b6d673422fae8b95b5fb401781e6d3daa702d",
+            "Volumes": {
+                "/data": {}
+            },
+            "WorkingDir": "/data",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 95041388,
+        "VirtualSize": 95041388,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/557746e91462e8a98417b3892dc98e75bd1818b62938a3714ddb326557a52326/diff:/var/lib/docker/overlay2/5f29a8b913721d43915a53614fa9af14e1371baba129ffeb2148a0078134b40f/diff:/var/lib/docker/overlay2/d53e7343c76b8ac0a3fa34480d35eb94339b82b6b7e607e20f745c575acc4f08/diff:/var/lib/docker/overlay2/712cff285ac5291576e285ee7dc6bbefad59c62f27cc70b085289bba072747c1/diff:/var/lib/docker/overlay2/4e17f062e4dd2997c30018f4b8322bcd7a7e8abe8a35d46df218e7be2c7ccf58/diff",
+                "MergedDir": "/var/lib/docker/overlay2/ee575f784b31a3f49d2525bbf7e0787003b8b04c7775a927b6263f9e4a4938e3/merged",
+                "UpperDir": "/var/lib/docker/overlay2/ee575f784b31a3f49d2525bbf7e0787003b8b04c7775a927b6263f9e4a4938e3/diff",
+                "WorkDir": "/var/lib/docker/overlay2/ee575f784b31a3f49d2525bbf7e0787003b8b04c7775a927b6263f9e4a4938e3/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:cf5b3c6798f77b1f78bf4e297b27cfa5b6caa982f04caeb5de7d13c255fd7a1e",
+                "sha256:1f34edf2a6aacf60086a6caecb2ceacfb6e1f7b24d659ed91e0bbdca47e13686",
+                "sha256:f47b3447d88680bc50fe9fe62b90806e52effaccfc7f57059775a70ed789f959",
+                "sha256:b52012b75962c41bc0f78b26b9f8d72f72c3af184fbb5b099dca6d8f52ee3895",
+                "sha256:e974197f92a20606a54409cc18f0129cb1146ed80cb63b4c65424921075e4934",
+                "sha256:4aed829a002d8ef321bf6c4770a691f662d99cfb98ed830fd5ea4795ed13d6b1"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]
+oleks@oleks-Precision-T1500:~$ 

@@ -1,0 +1,57 @@
+
+$ docker network create --help
+
+to create custom network:
+-----------------------------
+- check ip addresses on device:
+  $ ip a s
+
+- use ip with no collisions with uderlay network
+  $ docker network create -d overlay --subnet=10.0.9.0/24 backend
+
+- check
+  $ docker network ls
+  Output:
+	NETWORK ID          NAME                DRIVER              SCOPE
+	xsnixwhxdtj8        backend             overlay             swarm
+	1c319c08caba        bridge              bridge              local
+	8219abb976b7        docker_gwbridge     bridge              local
+	e3389e6d7782        host                host                local
+	0oh1useo6zwu        ingress             overlay             swarm
+	166ee3c4e6d6        none                null                local
+	bbj30d5cdsmn        overnet             overlay             swarm
+
+  $ docker network inspect backend
+
+create balance service and hook it up to custom network
+--------------------------------------------------------
+
+$ docker service create --name balance -p 5000:3000 --network backend swarmgs/balance 
+
+check
+$ docker service ls
+
+hook up customer api to balance api
+------------------------------------
+      - create customer service which is not publised to outside
+	so do not publish port
+	$ docker service create --name customer --network backend swarmgs/customer
+
+      - check
+	$ docker service ls
+
+      - see logs of balance services 
+	$ docker service logs balance 
+	in logs currently connection to http://localhost:300
+
+      - balance api connects to customer api
+	through NODEJS environment varable MYWEB_CUSTOMER_API
+	so the variable should be setup
+
+      - service discovery is anabled and based on service name
+
+      - update balance service to set env variable value to customer:3000
+	$ docker service update --env-add MYWEB_CUSTOMER_API=customer:3000 balance
+
+
+

@@ -1,0 +1,81 @@
+MySql
+==============================
+
+$ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
+
+	-e --env	environment variable
+
+chech
+-----
+$ docker logs 76e8
+
+run client cli
+---------------
+$ docker exec -it some-mysql mysql --user=root --password=my-secret-pw
+
+	some-mysql	container name
+	mysql		client cli 
+
+and in mysql terminal:
+
+mysql> show databases;
+mysql> use mysql;
+mysql> show tables;
+mysql> select * from user;
+mysql> exit
+
+data persistency:
+------------------------
+$ docker volume ls
+
+$docker stop some-mysql
+$ docker rm some-mysql
+
+$ docker volume ls
+
+create new container with named volume as db :
+$ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d -v db:/var/lib/mysql mysql:latest
+
+$ docker volume ls
+
+volume db can be reused even if the container is removed
+
+remove all existing volumes 
+!!! even volumes for running containers will be removed
+$ docker volune rm $(docker volume ls -q)
+
+!!! more safe option:
+by listing only volumes which are not assiciated with container (dangling volumes)
+$ docker volume rm $(docker volume ls -qf dangling=true)
+
+remove running container with it's volume
+$ docker rm -fv some-running-container-name
+	-fv (-f -v)	force removing container and remove volume
+			named volume will not be removed
+
+
+discover which volume associated with which container
+-------------------------------------------------------
+$ docker inspect some-container-name
+
+	in section Mounts all info about volumes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

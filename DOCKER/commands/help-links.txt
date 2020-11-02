@@ -1,0 +1,44 @@
+
+Dockerfile
+------------------
+https://docs.docker.com/v17.09/engine/reference/builder/
+
+Use multi-stage builds
+------------------------
+https://docs.docker.com/develop/develop-images/multistage-build/
+
+docker compose
+--------------------
+https://docs.docker.com/compose/
+
+docker swarm
+----------------------------
+https://docs.docker.com/engine/swarm/
+
+HA Database with Docker in Swarm mode
+---------------------------------------
+https://vmware.github.io/vsphere-storage-for-docker/documentation/demo-ha-swarm.html
+
+Deploy Docker Compose (v3) to Swarm (mode) Cluster
+----------------------------------------------------
+https://codefresh.io/docker-tutorial/deploy-docker-compose-v3-swarm-mode-cluster/
+
+Using Multi-Stage Builds to Simplify And Standardize Build Processes
+--------------------------------------------------------------------
+https://medium.com/capital-one-tech/multi-stage-builds-and-dockerfile-b5866d9e2f84
+
+Multi-Stage Nodejs Build with Docker in Production
+----------------------------------------------------
+https://www.qsstechnosoft.com/multi-stage-nodejs-build-with-docker-in-production/
+
+
+How to speed up Node re-builds by leveraging docker multi-stage builds
+------------------------------------------------------------------------
+https://www.freecodecamp.org/news/speed-up-node-re-builds-leveraging-docker-multi-stage-builds-and-save-money-65189a4ab115/
+
+Node.js Docker workflow
+-----------------------
+https://medium.com/datreeio/node-js-docker-workflow-b9d936c931e1
+
+
+

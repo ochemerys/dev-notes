@@ -1,0 +1,8 @@
+help
+-------
+
+https://github.com/docker/docker-ce/blob/master/components/cli/docs/reference/commandline/service_rollback.md
+
+
+$ docker service rollback my-service
+
