@@ -1,2 +1,2 @@
 # dev-notes
-This repository contains my tech notes i made during my training/development
+This repository contains my tech notes I made during my training/development
