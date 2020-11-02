@@ -1,0 +1,65 @@
+pushing to remote & tags
+
+ssh 
+tags are to mark stable releases
+------------------------------------------------------------------
+D:\TRAINING\GIT\Fundamentals>git remote rm origin
+
+D:\TRAINING\GIT\Fundamentals>git remote add origin git@github.com:ochemerys/git-training.git
+
+D:\TRAINING\GIT\Fundamentals>git push -u origin master
+The authenticity of host 'github.com (192.30.253.113)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.113' (RSA) to the list of known hosts.
+Enter passphrase for key '/c/Users/user/.ssh/id_rsa':
+Counting objects: 80, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (64/64), done.
+Writing objects: 100% (80/80), 7.19 KiB | 0 bytes/s, done.
+Total 80 (delta 25), reused 0 (delta 0)
+remote: Resolving deltas: 100% (25/25), done.
+To git@github.com:ochemerys/git-training.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+
+D:\TRAINING\GIT\Fundamentals>git tag v1.0
+
+D:\TRAINING\GIT\Fundamentals>git tag
+v1.0
+
+D:\TRAINING\GIT\Fundamentals>git tag -a v1.0_with_message
+
+D:\TRAINING\GIT\Fundamentals>git tag
+v1.0
+v1.0_with_message
+
+D:\TRAINING\GIT\Fundamentals>git tag -s v1.0_signed
+gpg: WARNING: using insecure memory!
+gpg: please see http://www.gnupg.org/documentation/faqs.html for more information
+gpg: directory `/c/Users/user/.gnupg' created
+gpg: new configuration file `/c/Users/user/.gnupg/gpg.conf' created
+gpg: WARNING: options in `/c/Users/user/.gnupg/gpg.conf' are not yet active during this run
+gpg: keyring `/c/Users/user/.gnupg/secring.gpg' created
+gpg: keyring `/c/Users/user/.gnupg/pubring.gpg' created
+gpg: skipped "Oleks Chemerys <oleks@quick.cz>": secret key not available
+gpg: signing failed: secret key not available
+error: gpg failed to sign the data
+error: unable to sign the tag
+The tag message has been left in .git/TAG_EDITMSG
+
+D:\TRAINING\GIT\Fundamentals>git tag -v v1.0_with_message
+object be5da1caef903b926d463731154ba26ac5771837
+type commit
+tag v1.0_with_message
+tagger Oleks Chemerys <oleks@quick.cz> 1501974729 -0600
+
+this is v1.0
+error: no signature found
+error: could not verify the tag 'v1.0_with_message'
+
+D:\TRAINING\GIT\Fundamentals>git push -u origin master
+Enter passphrase for key '/c/Users/user/.ssh/id_rsa':
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+

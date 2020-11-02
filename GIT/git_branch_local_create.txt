@@ -1,0 +1,222 @@
+------------------------------------------------------------------
+creating local branches
+------------------------------------------------------------------
+
+D:\TRAINING\GIT\Fundamentals>git branch my_feature_1
+
+D:\TRAINING\GIT\Fundamentals>git checkout my_feature_1
+Switched to branch 'my_feature_1'
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* be5da1c (HEAD -> my_feature_1, tag: v1.0_with_message, tag: v1.0, origin/master, master) sharing is easy
+*   7d136c3 after fetch from remote
+|\
+| *   66d5160 Merge branch 'v1.0_fixes'
+| |\
+| | * ac14082 Added fix2
+| | * 6fa4324 Added fix1
+| * | 19bdfeb Added fix1
+| * | e2d89cf Really fixing Bug#1234
+| * | 2598e82 Fixed bug#1234
+| * | c57e469 Added feature3
+| * |   2790513 Merged feature2_additional into master
+| |\ \
+| | * | 7396103 Added additional features to feature2
+| | * | a85f845 Added feature2
+| | |/
+| * | 4d5573e Added feature1
+| |/
+| * 2232b2d Sharing is easy
+| * 9523d95 Updated README.txt from another location
+| * cacc905 Added .gitignore
+| * 974b56a Fixed typo in README.txt and added additional information about other features
+| * b1ae242 Fixed bug#1234
+| * ca729ab Added cool new feature
+| * a15ec67 Updated README.txt
+| * dd68199 Added README.txt
+* 960a2e7 .gitignore is added
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>echo my_feature_1 >> README.txt
+
+D:\TRAINING\GIT\Fundamentals>type README.txt
+Hello, Git
+<<<<<<< HEAD
+Hello, again
+updating README.txt with new info
+
+=======
+Updating README with new information
+Committing from an alternate location
+>>>>>> Sharing remotely is fun and easy
+
+Fixing bug#1234
+Another fix to Bug#1234
+
+Feature1
+Feature2
+Feature2 changes
+>>>>>>> origin/master
+
+my_feature_1
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch my_feature_1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch my_feature_1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\GIT\Fundamentals>git commit -am "added my feature 1"
+[my_feature_1 403bb3c] added my feature 1
+ 1 file changed, 1 insertion(+)
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* 403bb3c (HEAD -> my_feature_1) added my feature 1
+* be5da1c (tag: v1.0_with_message, tag: v1.0, origin/master, master) sharing is easy
+*   7d136c3 after fetch from remote
+|\
+| *   66d5160 Merge branch 'v1.0_fixes'
+| |\
+| | * ac14082 Added fix2
+| | * 6fa4324 Added fix1
+| * | 19bdfeb Added fix1
+| * | e2d89cf Really fixing Bug#1234
+| * | 2598e82 Fixed bug#1234
+| * | c57e469 Added feature3
+| * |   2790513 Merged feature2_additional into master
+| |\ \
+| | * | 7396103 Added additional features to feature2
+| | * | a85f845 Added feature2
+| | |/
+| * | 4d5573e Added feature1
+| |/
+| * 2232b2d Sharing is easy
+| * 9523d95 Updated README.txt from another location
+| * cacc905 Added .gitignore
+| * 974b56a Fixed typo in README.txt and added additional information about other features
+| * b1ae242 Fixed bug#1234
+| * ca729ab Added cool new feature
+| * a15ec67 Updated README.txt
+| * dd68199 Added README.txt
+* 960a2e7 .gitignore is added
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+------------------------------------------------------------------
+diffference between branches and tags
+	branch will follow commit
+	tag is always on the same commit
+------------------------------------------------------------------
+
+D:\TRAINING\GIT\Fundamentals>git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* 403bb3c (my_feature_1) added my feature 1
+* be5da1c (HEAD -> master, tag: v1.0_with_message, tag: v1.0, origin/master) sharing is easy
+*   7d136c3 after fetch from remote
+|\
+| *   66d5160 Merge branch 'v1.0_fixes'
+| |\
+| | * ac14082 Added fix2
+| | * 6fa4324 Added fix1
+| * | 19bdfeb Added fix1
+| * | e2d89cf Really fixing Bug#1234
+| * | 2598e82 Fixed bug#1234
+| * | c57e469 Added feature3
+| * |   2790513 Merged feature2_additional into master
+| |\ \
+| | * | 7396103 Added additional features to feature2
+| | * | a85f845 Added feature2
+| | |/
+| * | 4d5573e Added feature1
+| |/
+| * 2232b2d Sharing is easy
+| * 9523d95 Updated README.txt from another location
+| * cacc905 Added .gitignore
+| * 974b56a Fixed typo in README.txt and added additional information about other features
+| * b1ae242 Fixed bug#1234
+| * ca729ab Added cool new feature
+| * a15ec67 Updated README.txt
+| * dd68199 Added README.txt
+* 960a2e7 .gitignore is added
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git branch my_fix1 d8d5d7e
+
+D:\TRAINING\GIT\Fundamentals>git checkout my_fix1
+Switched to branch 'my_fix1'
+
+D:\TRAINING\GIT\Fundamentals>git checkout my_fix1
+Switched to branch 'my_fix1'
+
+D:\TRAINING\GIT\Fundamentals>echo "fixing bug#12345 in branch my_fix1" >> README.txt
+
+D:\TRAINING\GIT\Fundamentals>git commit -am "fixed bug#12345 in branch my_fix1"
+[my_fix1 702fb8f] fixed bug#12345 in branch my_fix1
+ 1 file changed, 1 insertion(+)
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* 702fb8f (HEAD -> my_fix1) fixed bug#12345 in branch my_fix1
+| * 403bb3c (my_feature_1) added my feature 1
+| * be5da1c (tag: v1.0_with_message, tag: v1.0, origin/master, master) sharing is easy
+| *   7d136c3 after fetch from remote
+| |\
+| | *   66d5160 Merge branch 'v1.0_fixes'
+| | |\
+| | | * ac14082 Added fix2
+| | | * 6fa4324 Added fix1
+| | * | 19bdfeb Added fix1
+| | * | e2d89cf Really fixing Bug#1234
+| | * | 2598e82 Fixed bug#1234
+| | * | c57e469 Added feature3
+| | * |   2790513 Merged feature2_additional into master
+| | |\ \
+| | | * | 7396103 Added additional features to feature2
+| | | * | a85f845 Added feature2
+| | | |/
+| | * | 4d5573e Added feature1
+| | |/
+| | * 2232b2d Sharing is easy
+| | * 9523d95 Updated README.txt from another location
+| | * cacc905 Added .gitignore
+| | * 974b56a Fixed typo in README.txt and added additional information about other features
+| | * b1ae242 Fixed bug#1234
+| | * ca729ab Added cool new feature
+| | * a15ec67 Updated README.txt
+| | * dd68199 Added README.txt
+| * 960a2e7 .gitignore is added
+|/
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+

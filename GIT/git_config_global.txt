@@ -1,0 +1,66 @@
+Global config
+
+======================================================================================
+D:\TRAINING\NPM\trip-to-mars-typical>git config --global user.name "Oleks Chemerys"
+
+D:\TRAINING\NPM\trip-to-mars-typical>git config --global --list
+user.name=Oleks Chemerys
+user.email=oleks@quick.cz
+
+D:\TRAINING\NPM\trip-to-mars-typical>git config --global core.editor notepad++
+
+D:\TRAINING\NPM\trip-to-mars-typical>git config --global --list
+user.name=Oleks Chemerys
+user.email=oleks@quick.cz
+core.editor=notepad++
+
+D:\TRAINING\NPM\trip-to-mars-typical>git config --global help.autocorrect 1
+
+D:\TRAINING\NPM\trip-to-mars-typical>git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   package.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\NPM\trip-to-mars-typical>git statsu
+WARNING: You called a Git command named 'statsu', which does not exist.
+Continuing under the assumption that you meant 'status'
+in 0.1 seconds automatically...
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   package.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\NPM\trip-to-mars-typical>git config --global color.ui auto
+
+D:\TRAINING\NPM\trip-to-mars-typical>git config --global --list
+user.name=Oleks Chemerys
+user.email=oleks@quick.cz
+core.editor=notepad++
+help.autocorrect=1
+color.ui=auto
+
+D:\TRAINING\GIT\Fundamentals>git config --global push.default matching
+
+D:\TRAINING\GIT\Fundamentals>git config --global push.default simple
+
+D:\TRAINING\GIT\Fundamentals>git config --global alias.lga "log --graph --oneline --all --decorate"
+
+D:\TRAINING\GIT\Fundamentals>git config --global --list
+user.name=Oleks Chemerys
+user.email=oleks@quick.cz
+core.editor=notepad.exe
+help.autocorrect=1
+color.ui=auto
+push.default=simple
+alias.lga=log --graph --oneline --all --decorate

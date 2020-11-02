@@ -1,0 +1,108 @@
+visualizing branches
+------------------------------------------------------------
+
+D:\TRAINING\GIT\Fundamentals>git log --graph --oneline
+* be5da1c sharing is easy
+*   7d136c3 after fetch from remote
+|\
+| *   66d5160 Merge branch 'v1.0_fixes'
+| |\
+| | * ac14082 Added fix2
+| | * 6fa4324 Added fix1
+| * | 19bdfeb Added fix1
+| * | e2d89cf Really fixing Bug#1234
+| * | 2598e82 Fixed bug#1234
+| * | c57e469 Added feature3
+| * |   2790513 Merged feature2_additional into master
+| |\ \
+| | * | 7396103 Added additional features to feature2
+| | * | a85f845 Added feature2
+| | |/
+| * | 4d5573e Added feature1
+| |/
+| * 2232b2d Sharing is easy
+| * 9523d95 Updated README.txt from another location
+| * cacc905 Added .gitignore
+| * 974b56a Fixed typo in README.txt and added additional information about other features
+| * b1ae242 Fixed bug#1234
+| * ca729ab Added cool new feature
+| * a15ec67 Updated README.txt
+| * dd68199 Added README.txt
+* 960a2e7 .gitignore is added
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git log --graph --oneline --all --decorate
+* be5da1c (HEAD -> master, tag: v1.0_with_message, tag: v1.0, origin/master) sharing is easy
+*   7d136c3 after fetch from remote
+|\
+| *   66d5160 Merge branch 'v1.0_fixes'
+| |\
+| | * ac14082 Added fix2
+| | * 6fa4324 Added fix1
+| * | 19bdfeb Added fix1
+| * | e2d89cf Really fixing Bug#1234
+| * | 2598e82 Fixed bug#1234
+| * | c57e469 Added feature3
+| * |   2790513 Merged feature2_additional into master
+| |\ \
+| | * | 7396103 Added additional features to feature2
+| | * | a85f845 Added feature2
+| | |/
+| * | 4d5573e Added feature1
+| |/
+| * 2232b2d Sharing is easy
+| * 9523d95 Updated README.txt from another location
+| * cacc905 Added .gitignore
+| * 974b56a Fixed typo in README.txt and added additional information about other features
+| * b1ae242 Fixed bug#1234
+| * ca729ab Added cool new feature
+| * a15ec67 Updated README.txt
+| * dd68199 Added README.txt
+* 960a2e7 .gitignore is added
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git config --global alias.lga "log --graph --oneline --all --decorate"
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* be5da1c (HEAD -> master, tag: v1.0_with_message, tag: v1.0, origin/master) sharing is easy
+*   7d136c3 after fetch from remote
+|\
+| *   66d5160 Merge branch 'v1.0_fixes'
+| |\
+| | * ac14082 Added fix2
+| | * 6fa4324 Added fix1
+| * | 19bdfeb Added fix1
+| * | e2d89cf Really fixing Bug#1234
+| * | 2598e82 Fixed bug#1234
+| * | c57e469 Added feature3
+| * |   2790513 Merged feature2_additional into master
+| |\ \
+| | * | 7396103 Added additional features to feature2
+| | * | a85f845 Added feature2
+| | |/
+| * | 4d5573e Added feature1
+| |/
+| * 2232b2d Sharing is easy
+| * 9523d95 Updated README.txt from another location
+| * cacc905 Added .gitignore
+| * 974b56a Fixed typo in README.txt and added additional information about other features
+| * b1ae242 Fixed bug#1234
+| * ca729ab Added cool new feature
+| * a15ec67 Updated README.txt
+| * dd68199 Added README.txt
+* 960a2e7 .gitignore is added
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+

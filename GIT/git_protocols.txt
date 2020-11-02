@@ -1,0 +1,13 @@
+git protocols
+==================
+
+http(s)		80/443		https://github.com/jquery/jquery.git 	read-write; password for auth; firewall friendly
+
+git			9418			git://github.com/jquery/jquery.git		read-only; anonymous only; not firewall friendly
+
+ssh			22			git@github.com:jquery/jquery.git		read-write; SSH key for auth
+
+file			n/a 			local
+
+
+

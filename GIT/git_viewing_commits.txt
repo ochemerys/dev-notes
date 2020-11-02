@@ -1,0 +1,142 @@
+working remotely
+=======================================================================================
+
+cloning a remote repository
+----------------------------
+
+D:\TRAINING\GIT\Fundamentals\jq_clone\jquery>git clone https://github.com/jquery/jquery.git
+
+D:\TRAINING\GIT\Fundamentals\jq_clone\jquery>cd jquery
+
+
+basic repository statistics
+----------------------------
+D:\TRAINING\GIT\Fundamentals\jq_clone\jquery>git log
+D:\TRAINING\GIT\Fundamentals\jq_clone\jquery>git log --oneline
+
+
+D:\TRAINING\GIT\Fundamentals\jq_clone\jquery>git log --oneline | find /v /c ""
+6256
+
+for linux git log --oneline | wc -l
+
+D:\TRAINING\GIT\Fundamentals\jq_clone\jquery>git shortlog
+Adam Coulombe (1):
+      Fix #13150, .has() w/o args checks for any callbacks. Close gh-1111.
+
+Adam J. Sontag (7):
+      .closest() should return a unique set of elements, not duplicates of the same ancestor.  Fixes #6700
+      Add a comment explaining that jQuery.map flattens arrays
+      Add a comment to explain (and enforce the temporary-ness of) an extra line of code added to workaround a Chrome 10 bug
+      Add link to chrome issue ticket
+      shorten the SHA
+      Fix tabs vs spaces in initial workaround commit
+      Revert grunt, grunt-contrib-jshint, and grunt-contrib-uglify versions used in build until we can adapt Gruntfile to support grunt 0.4.0rc5 changes
+
+
+D:\TRAINING\GIT\Fundamentals\jq_clone\jquery>git shortlog -sne
+  1714  John Resig <jeresig@gmail.com>
+   657  Timmy Willison <4timmywil@gmail.com>
+   579  Dave Methvin <dave.methvin@gmail.com>
+   336  Jörn Zaefferer <joern.zaefferer@gmail.com>
+   332  Julian Aubourg <aubourg.julian@gmail.com>
+   315  Rick Waldron <waldron.rick@gmail.com>
+
+ vieweing commits
+ ------------------------
+ D:\TRAINING\GIT\Fundamentals\jq_clone\jquery>git show HEAD
+commit f3c5776b826169de26ff58e6616b99427d5b8db0
+Author: Richard Gibson <richard.gibson@gmail.com>
+Date:   Mon Jul 31 15:16:23 2017 -0400
+
+    Tests: Replace non-ASCII whitespace in source code
+
+diff --git a/test/unit/wrap.js b/test/unit/wrap.js
+index 65af2b4..840e35a 100644
+--- a/test/unit/wrap.js
++++ b/test/unit/wrap.js
+@@ -9,7 +9,7 @@ QUnit.module( "wrap", {
+ } );
+
+ // See test/unit/manipulation.js for explanation about these 2 functions
+-function manipulationBareObj( value ) {
++function manipulationBareObj( value ) {
+        return value;
+ }
+
+ D:\TRAINING\GIT\Fundamentals\jq_clone\jquery>git show HEAD
+commit f3c5776b826169de26ff58e6616b99427d5b8db0
+Author: Richard Gibson <richard.gibson@gmail.com>
+Date:   Mon Jul 31 15:16:23 2017 -0400
+
+    Tests: Replace non-ASCII whitespace in source code
+
+diff --git a/test/unit/wrap.js b/test/unit/wrap.js
+index 65af2b4..840e35a 100644
+--- a/test/unit/wrap.js
++++ b/test/unit/wrap.js
+@@ -9,7 +9,7 @@ QUnit.module( "wrap", {
+ } );
+
+ // See test/unit/manipulation.js for explanation about these 2 functions
+-function manipulationBareObj( value ) {
++function manipulationBareObj( value ) {
+        return value;
+ }
+
+
+D:\TRAINING\GIT\Fundamentals\jq_clone\jquery>git show 5642626
+commit 56426261f0ee97d6d2f903d08b137a6f5f2c0916
+Author: Dave Methvin <dave.methvin@gmail.com>
+Date:   Thu Mar 1 22:31:17 2012 -0500
+
+    Fix #11415: Stop non-negative prop undershoot on animation.
+
+    This doesn't fix *all* of them (see the ticket for a supposedly complete list) but these were al
+ready handy so it was relatively cheap to fix them. If you need others fixed, add a custom step func
+tion as was done here. Thanks @scott_gonzalez!
+
+diff --git a/src/effects.js b/src/effects.js
+index 1536d2d..790a63c 100644
+--- a/src/effects.js
++++ b/src/effects.js
+@@ -634,9 +634,8 @@ jQuery.extend( jQuery.fx, {
+        }
+ });
+
+-// Adds width/height step functions
+-// Do not set anything below 0
+-jQuery.each([ "width", "height" ], function( i, prop ) {
++// Ensure props that can't be negative don't go there on undershoot easing
++jQuery.each( fxAttrs.concat.apply( [], fxAttrs ), function( i, prop ) {
+        jQuery.fx.step[ prop ] = function( fx ) {
+                jQuery.style( fx.elem, prop, Math.max(0, fx.now) + fx.unit );
+        };
+diff --git a/test/unit/effects.js b/test/unit/effects.js
+index 2078dc6..a3c2152 100644
+--- a/test/unit/effects.js
++++ b/test/unit/effects.js
+@@ -263,6 +263,15 @@ test("animate negative height", function() {
+        });
+ });
+
++test("animate negative padding", function() {
++       expect(1);
++       stop();
++       jQuery("#foo").animate({ paddingBottom: -100 }, 100, function() {
++               equal( jQuery(this).css("paddingBottom"), "0px", "Verify paddingBottom." );
++               start();
++       });
++});
++
+ test("animate block as inline width/height", function() {
+        expect(3);
+
+
+D:\TRAINING\GIT\Fundamentals\jq_clone\jquery>git remote
+origin
+
+D:\TRAINING\GIT\Fundamentals\jq_clone\jquery>git remote -v
+origin  https://github.com/jquery/jquery.git (fetch)
+origin  https://github.com/jquery/jquery.git (push)
+

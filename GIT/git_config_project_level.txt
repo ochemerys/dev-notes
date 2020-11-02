@@ -1,0 +1,65 @@
+Project level config
+
+============================================================================
+D:\TRAINING\NPM\trip-to-mars-typical>git config core.editor notepad++
+
+D:\TRAINING\NPM\trip-to-mars-typical>git config --list
+core.symlinks=false
+core.autocrlf=true
+color.diff=auto
+color.status=auto
+color.branch=auto
+color.interactive=true
+pack.packsizelimit=2g
+help.format=html
+http.sslcainfo=C:/Program Files/Git/mingw32/ssl/certs/ca-bundle.crt
+diff.astextplain.textconv=astextplain
+rebase.autosquash=true
+user.name=Oleks Chemerys
+user.email=oleks@quick.cz
+core.editor=notepad.exe
+help.autocorrect=1
+color.ui=auto
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+core.hidedotfiles=dotGitOnly
+core.editor=notepad++
+remote.origin.url=https://github.com/joeeames/trip-to-mars-typical
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+
+D:\TRAINING\NPM\trip-to-mars-typical>git config --unset core.editor
+
+D:\TRAINING\NPM\trip-to-mars-typical>git config --list
+core.symlinks=false
+core.autocrlf=true
+color.diff=auto
+color.status=auto
+color.branch=auto
+color.interactive=true
+pack.packsizelimit=2g
+help.format=html
+http.sslcainfo=C:/Program Files/Git/mingw32/ssl/certs/ca-bundle.crt
+diff.astextplain.textconv=astextplain
+rebase.autosquash=true
+user.name=Oleks Chemerys
+user.email=oleks@quick.cz
+core.editor=notepad.exe
+help.autocorrect=1
+color.ui=auto
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+core.hidedotfiles=dotGitOnly
+remote.origin.url=https://github.com/joeeames/trip-to-mars-typical
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master

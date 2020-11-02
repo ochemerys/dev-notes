@@ -1,0 +1,86 @@
+recovering deleted commits
+(deleted commits are kept by git for 1 month only)
+-----------------------------------------------------------------
+
+D:\TRAINING\GIT\Fundamentals>git reflog
+2bf5744 HEAD@{0}: commit: added my feature 2
+be5da1c HEAD@{1}: checkout: moving from master to my_feature
+be5da1c HEAD@{2}: checkout: moving from my_fix1 to master
+702fb8f HEAD@{3}: commit: fixed bug#12345 in branch my_fix1
+d8d5d7e HEAD@{4}: checkout: moving from master to my_fix1
+be5da1c HEAD@{5}: checkout: moving from my_feature_1 to master
+403bb3c HEAD@{6}: commit: added my feature 1
+be5da1c HEAD@{7}: checkout: moving from master to my_feature_1
+be5da1c HEAD@{8}: commit: sharing is easy
+7d136c3 HEAD@{9}: commit (merge): after fetch from remote
+960a2e7 HEAD@{10}: commit: .gitignore is added
+d8d5d7e HEAD@{11}: reset: moving to HEAD~1
+f7902c2 HEAD@{12}: commit: Reoganized
+d8d5d7e HEAD@{13}: reset: moving to HEAD~1
+c630e31 HEAD@{14}: commit: reorganized the feature
+d8d5d7e HEAD@{15}: commit: fixed bug in file1.txt and add info to README.txt
+c8285b7 HEAD@{16}: commit: fixed bug in file2.txt
+3d81edf HEAD@{17}: commit: added cool new feature
+4319448 HEAD@{18}: commit: updated README.txt by adding a line
+adb7ffe HEAD@{19}: commit (initial): Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git branch bug12345 702fb8f
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* 2bf5744 (HEAD -> my_feature2) added my feature 2
+| * 702fb8f (bug12345) fixed bug#12345 in branch my_fix1
+| | * 403bb3c (my_feature_1) added my feature 1
+| |/
+|/|
+* | be5da1c (tag: v1.0_with_message, tag: v1.0, origin/master, master) sharing is easy
+* |   7d136c3 after fetch from remote
+|\ \
+| * \   66d5160 Merge branch 'v1.0_fixes'
+| |\ \
+| | * | ac14082 Added fix2
+| | * | 6fa4324 Added fix1
+| * | | 19bdfeb Added fix1
+| * | | e2d89cf Really fixing Bug#1234
+| * | | 2598e82 Fixed bug#1234
+| * | | c57e469 Added feature3
+| * | |   2790513 Merged feature2_additional into master
+| |\ \ \
+| | * | | 7396103 Added additional features to feature2
+| | * | | a85f845 Added feature2
+| | |/ /
+| * | | 4d5573e Added feature1
+| |/ /
+| * | 2232b2d Sharing is easy
+| * | 9523d95 Updated README.txt from another location
+| * | cacc905 Added .gitignore
+| * | 974b56a Fixed typo in README.txt and added additional information about other features
+| * | b1ae242 Fixed bug#1234
+| * | ca729ab Added cool new feature
+| * | a15ec67 Updated README.txt
+| * | dd68199 Added README.txt
+|  /
+* | 960a2e7 .gitignore is added
+|/
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git show HEAD
+commit 702fb8fc7e3af39497fd5251a4687b82115b77ba
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Sun Aug 6 13:23:45 2017 -0600
+
+    fixed bug#12345 in branch my_fix1
+
+diff --git a/README.txt b/README.txt
+index 8b8725e..845386e 100644
+--- a/README.txt
++++ b/README.txt
+@@ -2,3 +2,4 @@ Hello, Git
+ Hello, again
+ updating README.txt with new info
+
++"fixing bug#12345 in branch my_fix1"
+

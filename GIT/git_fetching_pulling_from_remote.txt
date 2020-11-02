@@ -1,0 +1,119 @@
+fetching from remote
+-------------------------------
+
+D:\TRAINING\GIT\Fundamentals>git log --oneline
+960a2e7 .gitignore is added
+d8d5d7e fixed bug in file1.txt and add info to README.txt
+c8285b7 fixed bug in file2.txt
+3d81edf added cool new feature
+4319448 updated README.txt by adding a line
+adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git log origin/master --oneline
+66d5160 Merge branch 'v1.0_fixes'
+19bdfeb Added fix1
+ac14082 Added fix2
+6fa4324 Added fix1
+e2d89cf Really fixing Bug#1234
+2598e82 Fixed bug#1234
+c57e469 Added feature3
+2790513 Merged feature2_additional into master
+7396103 Added additional features to feature2
+a85f845 Added feature2
+4d5573e Added feature1
+2232b2d Sharing is easy
+9523d95 Updated README.txt from another location
+cacc905 Added .gitignore
+974b56a Fixed typo in README.txt and added additional information about other features
+b1ae242 Fixed bug#1234
+ca729ab Added cool new feature
+a15ec67 Updated README.txt
+dd68199 Added README.txt
+
+D:\TRAINING\GIT\Fundamentals>git merge origin/master
+Auto-merging file2.txt
+CONFLICT (add/add): Merge conflict in file2.txt
+Auto-merging file1.txt
+CONFLICT (add/add): Merge conflict in file1.txt
+Auto-merging README.txt
+CONFLICT (add/add): Merge conflict in README.txt
+Auto-merging .gitignore
+CONFLICT (add/add): Merge conflict in .gitignore
+Automatic merge failed; fix conflicts and then commit the result.
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both added:      .gitignore
+        both added:      README.txt
+        both added:      file1.txt
+        both added:      file2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        jq_clone/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both added:      .gitignore
+        both added:      README.txt
+        both added:      file1.txt
+        both added:      file2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        jq_clone/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\GIT\Fundamentals>git branch -r
+  origin/master
+
+-------------------------------------------------------------------------------------------------
+pulling from remote
+
+"git pull" is a shortcut for "git fetch" AND THEN "git merge origin/master"
+-------------------------------------------------------------------------------------------------
+
+D:\TRAINING\GIT\Fundamentals>git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> master
+
+
+D:\TRAINING\GIT\Fundamentals>git branch --set-upstream master origin/master
+The --set-upstream flag is deprecated and will be removed. Consider using --track or --set-upstream-
+to
+Branch master set up to track remote branch master from origin.
+
+D:\TRAINING\GIT\Fundamentals>git branch --set-upstream-to master origin/master
+fatal: branch 'origin/master' does not exist
+
+D:\TRAINING\GIT\Fundamentals>git pull
+Already up-to-date.
+
+  
+
+
+

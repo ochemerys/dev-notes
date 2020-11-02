@@ -1,0 +1,251 @@
+merging branches
+-------------------------------------------------------------------------
+
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* bb13be2 (my_feature2_additional) added additional feature to my_feature2
+* 2bf5744 (my_feature2) added my feature 2
+| * 4853a5d (bug12345) really fixing bug#12345
+| * 702fb8f fixed bug#12345 in branch my_fix1
+| | * 403bb3c (my_feature_1) added my feature 1
+| |/
+|/|
+* | be5da1c (HEAD -> master, tag: v1.0_with_message, tag: v1.0, origin/master) sharing is easy
+* |   7d136c3 after fetch from remote
+|\ \
+| * \   66d5160 Merge branch 'v1.0_fixes'
+| |\ \
+| | * | ac14082 Added fix2
+| | * | 6fa4324 Added fix1
+| * | | 19bdfeb Added fix1
+| * | | e2d89cf Really fixing Bug#1234
+| * | | 2598e82 Fixed bug#1234
+| * | | c57e469 Added feature3
+| * | |   2790513 Merged feature2_additional into master
+| |\ \ \
+| | * | | 7396103 Added additional features to feature2
+| | * | | a85f845 Added feature2
+| | |/ /
+| * | | 4d5573e Added feature1
+| |/ /
+| * | 2232b2d Sharing is easy
+| * | 9523d95 Updated README.txt from another location
+| * | cacc905 Added .gitignore
+| * | 974b56a Fixed typo in README.txt and added additional information about other features
+| * | b1ae242 Fixed bug#1234
+| * | ca729ab Added cool new feature
+| * | a15ec67 Updated README.txt
+| * | dd68199 Added README.txt
+|  /
+* | 960a2e7 .gitignore is added
+|/
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git merge my_feature_1
+Updating be5da1c..403bb3c
+Fast-forward
+ README.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* bb13be2 (my_feature2_additional) added additional feature to my_feature2
+* 2bf5744 (my_feature2) added my feature 2
+| * 4853a5d (bug12345) really fixing bug#12345
+| * 702fb8f fixed bug#12345 in branch my_fix1
+| | * 403bb3c (HEAD -> master, my_feature_1) added my feature 1
+| |/
+|/|
+* | be5da1c (tag: v1.0_with_message, tag: v1.0, origin/master) sharing is easy
+* |   7d136c3 after fetch from remote
+|\ \
+| * \   66d5160 Merge branch 'v1.0_fixes'
+| |\ \
+| | * | ac14082 Added fix2
+| | * | 6fa4324 Added fix1
+| * | | 19bdfeb Added fix1
+| * | | e2d89cf Really fixing Bug#1234
+| * | | 2598e82 Fixed bug#1234
+| * | | c57e469 Added feature3
+| * | |   2790513 Merged feature2_additional into master
+| |\ \ \
+| | * | | 7396103 Added additional features to feature2
+| | * | | a85f845 Added feature2
+| | |/ /
+| * | | 4d5573e Added feature1
+| |/ /
+| * | 2232b2d Sharing is easy
+| * | 9523d95 Updated README.txt from another location
+| * | cacc905 Added .gitignore
+| * | 974b56a Fixed typo in README.txt and added additional information about other features
+| * | b1ae242 Fixed bug#1234
+| * | ca729ab Added cool new feature
+| * | a15ec67 Updated README.txt
+| * | dd68199 Added README.txt
+|  /
+* | 960a2e7 .gitignore is added
+|/
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git branch -d my_feature_1
+Deleted branch my_feature_1 (was 403bb3c).
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* bb13be2 (my_feature2_additional) added additional feature to my_feature2
+* 2bf5744 (my_feature2) added my feature 2
+| * 4853a5d (bug12345) really fixing bug#12345
+| * 702fb8f fixed bug#12345 in branch my_fix1
+| | * 403bb3c (HEAD -> master) added my feature 1
+| |/
+|/|
+* | be5da1c (tag: v1.0_with_message, tag: v1.0, origin/master) sharing is easy
+* |   7d136c3 after fetch from remote
+|\ \
+| * \   66d5160 Merge branch 'v1.0_fixes'
+| |\ \
+| | * | ac14082 Added fix2
+| | * | 6fa4324 Added fix1
+| * | | 19bdfeb Added fix1
+| * | | e2d89cf Really fixing Bug#1234
+| * | | 2598e82 Fixed bug#1234
+| * | | c57e469 Added feature3
+| * | |   2790513 Merged feature2_additional into master
+| |\ \ \
+| | * | | 7396103 Added additional features to feature2
+| | * | | a85f845 Added feature2
+| | |/ /
+| * | | 4d5573e Added feature1
+| |/ /
+| * | 2232b2d Sharing is easy
+| * | 9523d95 Updated README.txt from another location
+| * | cacc905 Added .gitignore
+| * | 974b56a Fixed typo in README.txt and added additional information about other features
+| * | b1ae242 Fixed bug#1234
+| * | ca729ab Added cool new feature
+| * | a15ec67 Updated README.txt
+| * | dd68199 Added README.txt
+|  /
+* | 960a2e7 .gitignore is added
+|/
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git merge my_feature2_additional
+Auto-merging README.txt
+CONFLICT (content): Merge conflict in README.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+D:\TRAINING\GIT\Fundamentals>notepad README.txt
+
+D:\TRAINING\GIT\Fundamentals>git mergetool
+Merging:
+README.txt
+
+Normal merge conflict for 'README.txt':
+  {local}: modified file
+  {remote}: modified file
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+        modified:   README.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        README.txt.orig
+
+
+D:\TRAINING\GIT\Fundamentals>git diff --cached
+diff --git a/README.txt b/README.txt
+index 6c77977..0f7f76b 100644
+--- a/README.txt
++++ b/README.txt
+@@ -17,3 +17,5 @@ Feature2 changes
+ >>>>>>> origin/master
+
+ my_feature_1
++My Feature2
++My Feature 2 changes
+
+D:\TRAINING\GIT\Fundamentals>git commit -m "merged my_feature2_additional into master"
+[master 77e0914] merged my_feature2_additional into master
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        README.txt.orig
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\TRAINING\GIT\Fundamentals>del README.txt.orig
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>git lga
+*   77e0914 (HEAD -> master) merged my_feature2_additional into master
+|\
+| * bb13be2 (my_feature2_additional) added additional feature to my_feature2
+| * 2bf5744 (my_feature2) added my feature 2
+* | 403bb3c added my feature 1
+|/
+* be5da1c (tag: v1.0_with_message, tag: v1.0, origin/master) sharing is easy
+*   7d136c3 after fetch from remote
+|\
+| *   66d5160 Merge branch 'v1.0_fixes'
+| |\
+| | * ac14082 Added fix2
+| | * 6fa4324 Added fix1
+| * | 19bdfeb Added fix1
+| * | e2d89cf Really fixing Bug#1234
+| * | 2598e82 Fixed bug#1234
+| * | c57e469 Added feature3
+| * |   2790513 Merged feature2_additional into master
+| |\ \
+| | * | 7396103 Added additional features to feature2
+| | * | a85f845 Added feature2
+| | |/
+| * | 4d5573e Added feature1
+| |/
+| * 2232b2d Sharing is easy
+| * 9523d95 Updated README.txt from another location
+| * cacc905 Added .gitignore
+| * 974b56a Fixed typo in README.txt and added additional information about other features
+| * b1ae242 Fixed bug#1234
+| * ca729ab Added cool new feature
+| * a15ec67 Updated README.txt
+| * dd68199 Added README.txt
+* 960a2e7 .gitignore is added
+| * 4853a5d (bug12345) really fixing bug#12345
+| * 702fb8f fixed bug#12345 in branch my_fix1
+|/
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+

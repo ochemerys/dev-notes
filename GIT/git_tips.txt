@@ -1,0 +1,156 @@
+
+
+
+$ git log --stat
+commit 37f501281976b02f1f9d39cb6064e55b2deab736
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Mon Aug 7 22:04:40 2017 -0600
+
+    Add guacamole
+
+ menu.txt              | 3 ++-
+ recipes/guacamole.txt | 7 +++++++
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+
+commit 18434be7dae65e872cd01772b42565cadbabd1ff
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Mon Aug 7 20:33:41 2017 -0600
+
+    Changed mind about Markdown menu
+
+ menu.md  | 4 ----
+ menu.txt | 4 ++++
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 4c97909452c40a15a58ae9452b5b637c84bc2865
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Mon Aug 7 20:29:17 2017 -0600
+
+    Use Markdown for the menu
+
+ menu.md  | 4 ++++
+ menu.txt | 4 ----
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 808fe71bc6f49c21a817f5f45820d5577977c479
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Mon Aug 7 20:04:03 2017 -0600
+
+    Add Tikka Masala to menu
+
+ menu.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit a927a32826b438147cbbd7a55fd9c07a9b98ed39
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Mon Aug 7 18:38:59 2017 -0600
+
+    Fix to spaghetti name
+
+ menu.txt                             |  2 +-
+ recipes/spaghetti_ala_carbonara.txt  | 10 ----------
+ recipes/spaghetti_alla_carbonara.txt | 10 ++++++++++
+ 3 files changed, 11 insertions(+), 11 deletions(-)
+
+commit 93387197d507f5a7bddf521712143a981cf50372
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Mon Aug 7 13:39:45 2017 -0600
+
+    Add spaghetti recipe
+
+ recipes/spaghetti_ala_carbonara.txt | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+commit 69cf8a17fb8123d7dac90ded2b40be58448616d9
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Mon Aug 7 13:30:21 2017 -0600
+
+    Add Spaghetti
+
+user@win-PC MINGW32 /d/TRAINING/GIT/UnderHood/cookbook (master)
+$ git log -p
+commit 37f501281976b02f1f9d39cb6064e55b2deab736
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Mon Aug 7 22:04:40 2017 -0600
+
+    Add guacamole
+
+diff --git a/menu.txt b/menu.txt
+index 0d9d898..6f0eae4 100644
+--- a/menu.txt
++++ b/menu.txt
+@@ -1,4 +1,5 @@
+ Spaghetti alla Carbonara
+ Apple Pie
+ Cheesecake
+-Chicke Tikka Masala
+\ No newline at end of file
++Chicke Tikka Masala
++Guacamole
+\ No newline at end of file
+diff --git a/recipes/guacamole.txt b/recipes/guacamole.txt
+new file mode 100644
+index 0000000..bd9de9f
+--- /dev/null
++++ b/recipes/guacamole.txt
+@@ -0,0 +1,7 @@
++Ingredients:
++Avocados
++Lime juice
++Serano chiles
++Cilantro
++Salt
++Black pepper
+\ No newline at end of file
+
+commit 18434be7dae65e872cd01772b42565cadbabd1ff
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Mon Aug 7 20:33:41 2017 -0600
+
+    Changed mind about Markdown menu
+
+diff --git a/menu.md b/menu.md
+deleted file mode 100644
+index 0d9d898..0000000
+--- a/menu.md
++++ /dev/null
+@@ -1,4 +0,0 @@
+-Spaghetti alla Carbonara
+-Apple Pie
+-Cheesecake
+-Chicke Tikka Masala
+\ No newline at end of file
+diff --git a/menu.txt b/menu.txt
+new file mode 100644
+index 0000000..0d9d898
+--- /dev/null
++++ b/menu.txt
+@@ -0,0 +1,4 @@
++Spaghetti alla Carbonara
++Apple Pie
++Cheesecake
++Chicke Tikka Masala
+\ No newline at end of file
+
+commit 4c97909452c40a15a58ae9452b5b637c84bc2865
+
+user@win-PC MINGW32 /d/TRAINING/GIT/UnderHood/cookbook (master)
+$ gitk --all
+
+user@win-PC MINGW32 /d/TRAINING/GIT/UnderHood/cookbook (master)
+$ git branch
+  lisa
+* master
+  nogood
+  spaghetti
+
+user@win-PC MINGW32 /d/TRAINING/GIT/UnderHood/cookbook (master)
+$ checkout lisa
+bash: checkout: command not found
+
+user@win-PC MINGW32 /d/TRAINING/GIT/UnderHood/cookbook (master)
+$ gitk --all
+
+user@win-PC MINGW32 /d/TRAINING/GIT/UnderHood/cookbook (master)
+$
+

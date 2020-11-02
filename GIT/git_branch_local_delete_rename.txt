@@ -1,0 +1,206 @@
+renaming and delting branches
+---------------------------------------------------------------------
+
+D:\TRAINING\GIT\Fundamentals>git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+
+D:\TRAINING\GIT\Fundamentals>git branch -m my_fix1 bug#12345
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* 702fb8f (bug#12345) fixed bug#12345 in branch my_fix1
+| * 403bb3c (my_feature_1) added my feature 1
+| * be5da1c (HEAD -> master, tag: v1.0_with_message, tag: v1.0, origin/master) sharing is easy
+| *   7d136c3 after fetch from remote
+| |\
+| | *   66d5160 Merge branch 'v1.0_fixes'
+| | |\
+| | | * ac14082 Added fix2
+| | | * 6fa4324 Added fix1
+| | * | 19bdfeb Added fix1
+| | * | e2d89cf Really fixing Bug#1234
+| | * | 2598e82 Fixed bug#1234
+| | * | c57e469 Added feature3
+| | * |   2790513 Merged feature2_additional into master
+| | |\ \
+| | | * | 7396103 Added additional features to feature2
+| | | * | a85f845 Added feature2
+| | | |/
+| | * | 4d5573e Added feature1
+| | |/
+| | * 2232b2d Sharing is easy
+| | * 9523d95 Updated README.txt from another location
+| | * cacc905 Added .gitignore
+| | * 974b56a Fixed typo in README.txt and added additional information about other features
+| | * b1ae242 Fixed bug#1234
+| | * ca729ab Added cool new feature
+| | * a15ec67 Updated README.txt
+| | * dd68199 Added README.txt
+| * 960a2e7 .gitignore is added
+|/
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git branch -d bug#12345
+error: The branch 'bug#12345' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D bug#12345'.
+
+D:\TRAINING\GIT\Fundamentals>git branch -D bug#12345
+Deleted branch bug#12345 (was 702fb8f).
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* 403bb3c (my_feature_1) added my feature 1
+* be5da1c (HEAD -> master, tag: v1.0_with_message, tag: v1.0, origin/master) sharing is easy
+*   7d136c3 after fetch from remote
+|\
+| *   66d5160 Merge branch 'v1.0_fixes'
+| |\
+| | * ac14082 Added fix2
+| | * 6fa4324 Added fix1
+| * | 19bdfeb Added fix1
+| * | e2d89cf Really fixing Bug#1234
+| * | 2598e82 Fixed bug#1234
+| * | c57e469 Added feature3
+| * |   2790513 Merged feature2_additional into master
+| |\ \
+| | * | 7396103 Added additional features to feature2
+| | * | a85f845 Added feature2
+| | |/
+| * | 4d5573e Added feature1
+| |/
+| * 2232b2d Sharing is easy
+| * 9523d95 Updated README.txt from another location
+| * cacc905 Added .gitignore
+| * 974b56a Fixed typo in README.txt and added additional information about other features
+| * b1ae242 Fixed bug#1234
+| * ca729ab Added cool new feature
+| * a15ec67 Updated README.txt
+| * dd68199 Added README.txt
+* 960a2e7 .gitignore is added
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git checkout -b  my_feature
+Switched to a new branch 'my_feature'
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* 403bb3c (my_feature_1) added my feature 1
+* be5da1c (HEAD -> my_feature, tag: v1.0_with_message, tag: v1.0, origin/master, master) sharing is easy
+*   7d136c3 after fetch from remote
+|\
+| *   66d5160 Merge branch 'v1.0_fixes'
+| |\
+| | * ac14082 Added fix2
+| | * 6fa4324 Added fix1
+| * | 19bdfeb Added fix1
+| * | e2d89cf Really fixing Bug#1234
+| * | 2598e82 Fixed bug#1234
+| * | c57e469 Added feature3
+| * |   2790513 Merged feature2_additional into master
+| |\ \
+| | * | 7396103 Added additional features to feature2
+| | * | a85f845 Added feature2
+| | |/
+| * | 4d5573e Added feature1
+| |/
+| * 2232b2d Sharing is easy
+| * 9523d95 Updated README.txt from another location
+| * cacc905 Added .gitignore
+| * 974b56a Fixed typo in README.txt and added additional information about other features
+| * b1ae242 Fixed bug#1234
+| * ca729ab Added cool new feature
+| * a15ec67 Updated README.txt
+| * dd68199 Added README.txt
+* 960a2e7 .gitignore is added
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git branch -m my_feature my_feature2
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* 403bb3c (my_feature_1) added my feature 1
+* be5da1c (HEAD -> my_feature2, tag: v1.0_with_message, tag: v1.0, origin/master, master) sharing is
+ easy
+*   7d136c3 after fetch from remote
+|\
+| *   66d5160 Merge branch 'v1.0_fixes'
+| |\
+| | * ac14082 Added fix2
+| | * 6fa4324 Added fix1
+| * | 19bdfeb Added fix1
+| * | e2d89cf Really fixing Bug#1234
+| * | 2598e82 Fixed bug#1234
+| * | c57e469 Added feature3
+| * |   2790513 Merged feature2_additional into master
+| |\ \
+| | * | 7396103 Added additional features to feature2
+| | * | a85f845 Added feature2
+| | |/
+| * | 4d5573e Added feature1
+| |/
+| * 2232b2d Sharing is easy
+| * 9523d95 Updated README.txt from another location
+| * cacc905 Added .gitignore
+| * 974b56a Fixed typo in README.txt and added additional information about other features
+| * b1ae242 Fixed bug#1234
+| * ca729ab Added cool new feature
+| * a15ec67 Updated README.txt
+| * dd68199 Added README.txt
+* 960a2e7 .gitignore is added
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>echo My Feature2 >> README.txt
+
+D:\TRAINING\GIT\Fundamentals>git commit -am "added my feature 2"
+[my_feature2 2bf5744] added my feature 2
+ 1 file changed, 1 insertion(+)
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* 2bf5744 (HEAD -> my_feature2) added my feature 2
+| * 403bb3c (my_feature_1) added my feature 1
+|/
+* be5da1c (tag: v1.0_with_message, tag: v1.0, origin/master, master) sharing is easy
+*   7d136c3 after fetch from remote
+|\
+| *   66d5160 Merge branch 'v1.0_fixes'
+| |\
+| | * ac14082 Added fix2
+| | * 6fa4324 Added fix1
+| * | 19bdfeb Added fix1
+| * | e2d89cf Really fixing Bug#1234
+| * | 2598e82 Fixed bug#1234
+| * | c57e469 Added feature3
+| * |   2790513 Merged feature2_additional into master
+| |\ \
+| | * | 7396103 Added additional features to feature2
+| | * | a85f845 Added feature2
+| | |/
+| * | 4d5573e Added feature1
+| |/
+| * 2232b2d Sharing is easy
+| * 9523d95 Updated README.txt from another location
+| * cacc905 Added .gitignore
+| * 974b56a Fixed typo in README.txt and added additional information about other features
+| * b1ae242 Fixed bug#1234
+| * ca729ab Added cool new feature
+| * a15ec67 Updated README.txt
+| * dd68199 Added README.txt
+* 960a2e7 .gitignore is added
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:

@@ -1,0 +1,727 @@
+Creating local repository, adding
+History and diffs
+Staging changes as multiple commits
+Deleting and renaming
+=======================================================================================
+
+
+D:\TRAINING\GIT\F>git init
+Initialized empty Git repository in D:/TRAINING/GIT/F/.git/
+
+D:\TRAINING\GIT\F>echo Hello Git > README.txt
+
+D:\TRAINING\GIT\F>git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        README.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\TRAINING\GIT\F>git add README.txt
+
+D:\TRAINING\GIT\F>git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   README.txt
+
+
+D:\TRAINING\GIT\F>git commit -m "Added README.txt"
+[master (root-commit) f075dad] Added README.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.txt
+
+D:\TRAINING\GIT\F>git status
+On branch master
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\F>git log
+commit f075dad7cc0bdb40a7d616c54c6409e30fc16480
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Thu Aug 3 19:47:31 2017 -0600
+
+    Added README.txt
+
+D:\TRAINING\GIT\F>nodepad.exe README.txt
+'nodepad.exe' is not recognized as an internal or external command,
+operable program or batch file.
+
+D:\TRAINING\GIT\F>notepad.exe README.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\GIT\Fundamentals>git add -u
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   README.txt
+
+
+D:\TRAINING\GIT\Fundamentals>git commit -m "Updated README.txt"
+[master f3d7bc1] Updated README.txt
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+D:\TRAINING\GIT\Fundamentals>git log
+commit f3d7bc167ef62a691290189a9d71c693e36f2da4
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Thu Aug 3 19:52:19 2017 -0600
+
+    Updated README.txt
+
+commit f075dad7cc0bdb40a7d616c54c6409e30fc16480
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Thu Aug 3 19:47:31 2017 -0600
+
+    Added README.txt
+
+D:\TRAINING\GIT\Fundamentals>git diff f075dad..f3d7bc1
+diff --git a/README.txt b/README.txt
+index d26c151..1272eb6 100644
+--- a/README.txt
++++ b/README.txt
+@@ -1 +1,2 @@
+-Hello Git
++Hello, Git
++Hello, again
+
+D:\TRAINING\GIT\Fundamentals>git diff HEAD~1..HEAD
+diff --git a/README.txt b/README.txt
+index b31d1e7..a9942be 100644
+--- a/README.txt
++++ b/README.txt
+@@ -1 +1,2 @@
+-"Hello, Git"
++Hello, Git
++Hello, again
+
+D:\TRAINING\GIT\Fundamentals>git diff HEAD~1..
+diff --git a/README.txt b/README.txt
+index b31d1e7..a9942be 100644
+--- a/README.txt
++++ b/README.txt
+@@ -1 +1,2 @@
+-"Hello, Git"
++Hello, Git
++Hello, again
+
+D:\TRAINING\GIT\Fundamentals>touch file1.txt file2.txt
+'touch' is not recognized as an internal or external command,
+operable program or batch file.
+
+D:\TRAINING\GIT\Fundamentals>copy NUL file1.txt file2.txt
+The syntax of the command is incorrect.
+
+D:\TRAINING\GIT\Fundamentals>copy NUL file1.txt
+        1 file(s) copied.
+
+D:\TRAINING\GIT\Fundamentals>copy NUL file2.txt
+        1 file(s) copied.
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        file1.txt
+        file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\TRAINING\GIT\Fundamentals>git add -A
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   file1.txt
+        new file:   file2.txt
+
+
+D:\TRAINING\GIT\Fundamentals>git commit -m "added cool new feature"
+[master 3d81edf] added cool new feature
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>git log
+commit 3d81edfe87307da88365ea0d29ea61587b8f7346
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:32:08 2017 -0600
+
+    added cool new feature
+
+commit 4319448edc217be1f0f5b54cc4936a65e326db28
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:18:54 2017 -0600
+
+    updated README.txt by adding a line
+
+commit adb7ffec77d38a5841d58fd9989bd7e3e6760b55
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:08:24 2017 -0600
+
+    Changes to be committed:
+
+    new file:   README.txt
+
+D:\TRAINING\GIT\Fundamentals>git diff HEAD~1
+diff --git a/file1.txt b/file1.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/file2.txt b/file2.txt
+new file mode 100644
+index 0000000..e69de29
+
+D:\TRAINING\GIT\Fundamentals>notepad.exe file1.txt
+
+D:\TRAINING\GIT\Fundamentals>notepad.exe file.txt
+
+D:\TRAINING\GIT\Fundamentals>notepad.exe file2.txt
+
+D:\TRAINING\GIT\Fundamentals>notepad.exe README.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.txt
+        modified:   file1.txt
+        modified:   file2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\GIT\Fundamentals>git add file2.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   file2.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.txt
+        modified:   file1.txt
+
+
+D:\TRAINING\GIT\Fundamentals>git commit -m "fixed bug in file2.txt"
+[master c8285b7] fixed bug in file2.txt
+ 1 file changed, 1 insertion(+)
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.txt
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\GIT\Fundamentals>git add -u
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   README.txt
+        modified:   file1.txt
+
+
+D:\TRAINING\GIT\Fundamentals>git commit -m "fixed bug in file1.txt and add info to README.txt"
+[master d8d5d7e] fixed bug in file1.txt and add info to README.txt
+ 2 files changed, 3 insertions(+)
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>del file2.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    file2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\GIT\Fundamentals>git add -u
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    file2.txt
+
+
+D:\TRAINING\GIT\Fundamentals>notepad.exe file3.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    file2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        file3.txt
+
+
+D:\TRAINING\GIT\Fundamentals>git add file3.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    file2.txt
+        new file:   file3.txt
+
+
+D:\TRAINING\GIT\Fundamentals>rename file1.txt new_file.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    file2.txt
+        new file:   file3.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    file1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        new_file.txt
+
+
+D:\TRAINING\GIT\Fundamentals>git add -A
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    file2.txt
+        new file:   file3.txt
+        renamed:    file1.txt -> new_file.txt
+
+
+D:\TRAINING\GIT\Fundamentals>git commit -m "reorganized the feature"
+[master c630e31] reorganized the feature
+ 3 files changed, 1 insertion(+), 1 deletion(-)
+ delete mode 100644 file2.txt
+ create mode 100644 file3.txt
+ rename file1.txt => new_file.txt (100%)
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>git log
+commit c630e31cecd89de93bc3ff0d2e44b432f50baccb
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:59:00 2017 -0600
+
+    reorganized the feature
+
+commit d8d5d7e212bc95a5ddc5ba7266879e9d733fe1a1
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:47:47 2017 -0600
+
+    fixed bug in file1.txt and add info to README.txt
+
+commit c8285b7922126dc8c3ec6dfa878150b7a0df0dff
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:45:00 2017 -0600
+
+    fixed bug in file2.txt
+
+commit 3d81edfe87307da88365ea0d29ea61587b8f7346
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:32:08 2017 -0600
+
+    added cool new feature
+
+commit 4319448edc217be1f0f5b54cc4936a65e326db28
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:18:54 2017 -0600
+
+    updated README.txt by adding a line
+
+commit adb7ffec77d38a5841d58fd9989bd7e3e6760b55
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:08:24 2017 -0600
+
+    Changes to be committed:
+
+    new file:   README.txt
+
+
+D:\TRAINING\GIT\Fundamentals>notepad.exe README.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\GIT\Fundamentals>git checkout README.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>type README.txt
+Hello, Git
+Hello, again
+updating README.txt with new info
+
+D:\TRAINING\GIT\Fundamentals>notepad.exe README.txt
+
+D:\TRAINING\GIT\Fundamentals>type README.txt
+
+
+
+D:\TRAINING\GIT\Fundamentals>del file1.txt
+Could Not Find D:\TRAINING\GIT\Fundamentals\file1.txt
+
+D:\TRAINING\GIT\Fundamentals>del new_file.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.txt
+        deleted:    new_file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\GIT\Fundamentals>git reset --hard
+HEAD is now at c630e31 reorganized the feature
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>type README.txt
+Hello, Git
+Hello, again
+updating README.txt with new info
+
+
+D:\TRAINING\GIT\Fundamentals>git reset --soft HEAD~1
+
+D:\TRAINING\GIT\Fundamentals>git log
+commit d8d5d7e212bc95a5ddc5ba7266879e9d733fe1a1
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:47:47 2017 -0600
+
+    fixed bug in file1.txt and add info to README.txt
+
+commit c8285b7922126dc8c3ec6dfa878150b7a0df0dff
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:45:00 2017 -0600
+
+    fixed bug in file2.txt
+
+commit 3d81edfe87307da88365ea0d29ea61587b8f7346
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:32:08 2017 -0600
+
+    added cool new feature
+
+commit 4319448edc217be1f0f5b54cc4936a65e326db28
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:18:54 2017 -0600
+
+    updated README.txt by adding a line
+
+commit adb7ffec77d38a5841d58fd9989bd7e3e6760b55
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:08:24 2017 -0600
+
+    Changes to be committed:
+
+    new file:   README.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    file2.txt
+        new file:   file3.txt
+        renamed:    file1.txt -> new_file.txt
+
+
+D:\TRAINING\GIT\Fundamentals>git commit -m "Reoganized"
+[master f7902c2] Reoganized
+ 3 files changed, 1 insertion(+), 1 deletion(-)
+ delete mode 100644 file2.txt
+ create mode 100644 file3.txt
+ rename file1.txt => new_file.txt (100%)
+
+D:\TRAINING\GIT\Fundamentals>git log
+commit f7902c27306a1bbc7454c72b2e6353ec04528349
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Thu Aug 3 20:17:05 2017 -0600
+
+    Reoganized
+
+commit d8d5d7e212bc95a5ddc5ba7266879e9d733fe1a1
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:47:47 2017 -0600
+
+    fixed bug in file1.txt and add info to README.txt
+
+commit c8285b7922126dc8c3ec6dfa878150b7a0df0dff
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:45:00 2017 -0600
+
+    fixed bug in file2.txt
+
+commit 3d81edfe87307da88365ea0d29ea61587b8f7346
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:32:08 2017 -0600
+
+    added cool new feature
+
+commit 4319448edc217be1f0f5b54cc4936a65e326db28
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:18:54 2017 -0600
+
+    updated README.txt by adding a line
+
+commit adb7ffec77d38a5841d58fd9989bd7e3e6760b55
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:08:24 2017 -0600
+
+    Changes to be committed:
+
+    new file:   README.txt
+
+D:\TRAINING\GIT\Fundamentals>git reset --hard HEAD~1
+HEAD is now at d8d5d7e fixed bug in file1.txt and add info to README.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>git log
+commit d8d5d7e212bc95a5ddc5ba7266879e9d733fe1a1
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:47:47 2017 -0600
+
+    fixed bug in file1.txt and add info to README.txt
+
+commit c8285b7922126dc8c3ec6dfa878150b7a0df0dff
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:45:00 2017 -0600
+
+    fixed bug in file2.txt
+
+commit 3d81edfe87307da88365ea0d29ea61587b8f7346
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:32:08 2017 -0600
+
+    added cool new feature
+
+commit 4319448edc217be1f0f5b54cc4936a65e326db28
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:18:54 2017 -0600
+
+    updated README.txt by adding a line
+
+commit adb7ffec77d38a5841d58fd9989bd7e3e6760b55
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:08:24 2017 -0600
+
+    Changes to be committed:
+
+    new file:   README.txt
+
+D:\TRAINING\GIT\Fundamentals>copy NUL temp1.txt
+        1 file(s) copied.
+
+D:\TRAINING\GIT\Fundamentals>copy NUL temp2.txt
+        1 file(s) copied.
+
+D:\TRAINING\GIT\Fundamentals>copy NUL temp3.txt
+        1 file(s) copied.
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        temp1.txt
+        temp2.txt
+        temp3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\TRAINING\GIT\Fundamentals>git clean
+fatal: clean.requireForce defaults to true and neither -i, -n, nor -f given; refusing to clean
+
+D:\TRAINING\GIT\Fundamentals>git clean -n
+Would remove temp1.txt
+Would remove temp2.txt
+Would remove temp3.txt
+
+D:\TRAINING\GIT\Fundamentals>git clean -f
+Removing temp1.txt
+Removing temp2.txt
+Removing temp3.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>mkdir logs
+
+D:\TRAINING\GIT\Fundamentals>copy NUL logs/log.txt
+        1 file(s) copied.
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>cd logs
+
+D:\TRAINING\GIT\Fundamentals\logs>copy NUL log.txt
+        1 file(s) copied.
+
+D:\TRAINING\GIT\Fundamentals\logs>cd ../
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        logs/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\TRAINING\GIT\Fundamentals>notepad.exe .gitignore
+
+D:\TRAINING\GIT\Fundamentals>type .gitignore
+/logs/*.txt
+/logs/*.log
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\TRAINING\GIT\Fundamentals>git add .gitignore
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   .gitignore
+
+
+D:\TRAINING\GIT\Fundamentals>git commit -m ".gitignore is added"
+[master 960a2e7] .gitignore is added
+ 1 file changed, 2 insertions(+)
+ create mode 100644 .gitignore
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch master
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>git log
+commit 960a2e755a781c43cccc9b0a10fe6901c49e919c
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Thu Aug 3 20:40:59 2017 -0600
+
+    .gitignore is added
+
+commit d8d5d7e212bc95a5ddc5ba7266879e9d733fe1a1
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:47:47 2017 -0600
+
+    fixed bug in file1.txt and add info to README.txt
+
+commit c8285b7922126dc8c3ec6dfa878150b7a0df0dff
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:45:00 2017 -0600
+
+    fixed bug in file2.txt
+
+commit 3d81edfe87307da88365ea0d29ea61587b8f7346
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:32:08 2017 -0600
+
+    added cool new feature
+
+commit 4319448edc217be1f0f5b54cc4936a65e326db28
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:18:54 2017 -0600
+
+    updated README.txt by adding a line
+
+commit adb7ffec77d38a5841d58fd9989bd7e3e6760b55
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Wed Aug 2 19:08:24 2017 -0600
+
+    Changes to be committed:
+
+    new file:   README.txt
+
+D:\TRAINING\GIT\Fundamentals>

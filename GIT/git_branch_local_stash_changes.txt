@@ -1,0 +1,311 @@
+stashing changes (for temporary changes)
+---------------------------------------------------------------------------
+
+D:\TRAINING\GIT\Fundamentals>git checkout my_feature2
+Switched to branch 'my_feature2'
+
+D:\TRAINING\GIT\Fundamentals>echo My Feature 2 changes >> README.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch my_feature2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\GIT\Fundamentals>git stash
+Saved working directory and index state WIP on my_feature2: 2bf5744 added my feature 2
+HEAD is now at 2bf5744 added my feature 2
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch my_feature2
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>type README.txt
+Hello, Git
+<<<<<<< HEAD
+Hello, again
+updating README.txt with new info
+
+=======
+Updating README with new information
+Committing from an alternate location
+>>>>>> Sharing remotely is fun and easy
+
+Fixing bug#1234
+Another fix to Bug#1234
+
+Feature1
+Feature2
+Feature2 changes
+>>>>>>> origin/master
+
+My Feature2
+
+D:\TRAINING\GIT\Fundamentals>git stash list
+stash@{0}: WIP on my_feature2: 2bf5744 added my feature 2
+
+D:\TRAINING\GIT\Fundamentals>git checkout bug12345
+Switched to branch 'bug12345'
+
+D:\TRAINING\GIT\Fundamentals>echo Another fix to bug#12345 >> README.txt
+
+D:\TRAINING\GIT\Fundamentals>git commit -am "really fixing bug#12345"
+[bug12345 4853a5d] really fixing bug#12345
+ 1 file changed, 1 insertion(+)
+
+D:\TRAINING\GIT\Fundamentals>git checkout my_feature2
+Switched to branch 'my_feature2'
+
+D:\TRAINING\GIT\Fundamentals>git stash apply
+On branch my_feature2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\TRAINING\GIT\Fundamentals>type README.txt
+Hello, Git
+<<<<<<< HEAD
+Hello, again
+updating README.txt with new info
+
+=======
+Updating README with new information
+Committing from an alternate location
+>>>>>> Sharing remotely is fun and easy
+
+Fixing bug#1234
+Another fix to Bug#1234
+
+Feature1
+Feature2
+Feature2 changes
+>>>>>>> origin/master
+
+My Feature2
+My Feature 2 changes
+
+D:\TRAINING\GIT\Fundamentals>git lba
+git: 'lba' is not a git command. See 'git --help'.
+
+Did you mean one of these?
+        blame
+        lga
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* 4853a5d (bug12345) really fixing bug#12345
+* 702fb8f fixed bug#12345 in branch my_fix1
+| *   f85eb60 (refs/stash) WIP on my_feature2: 2bf5744 added my feature 2
+| |\
+| | * 54db2da index on my_feature2: 2bf5744 added my feature 2
+| |/
+| * 2bf5744 (HEAD -> my_feature2) added my feature 2
+| | * 403bb3c (my_feature_1) added my feature 1
+| |/
+| * be5da1c (tag: v1.0_with_message, tag: v1.0, origin/master, master) sharing is easy
+| *   7d136c3 after fetch from remote
+| |\
+| | *   66d5160 Merge branch 'v1.0_fixes'
+| | |\
+| | | * ac14082 Added fix2
+| | | * 6fa4324 Added fix1
+| | * | 19bdfeb Added fix1
+| | * | e2d89cf Really fixing Bug#1234
+| | * | 2598e82 Fixed bug#1234
+| | * | c57e469 Added feature3
+| | * |   2790513 Merged feature2_additional into master
+| | |\ \
+| | | * | 7396103 Added additional features to feature2
+| | | * | a85f845 Added feature2
+| | | |/
+| | * | 4d5573e Added feature1
+| | |/
+| | * 2232b2d Sharing is easy
+| | * 9523d95 Updated README.txt from another location
+| | * cacc905 Added .gitignore
+| | * 974b56a Fixed typo in README.txt and added additional information about other features
+| | * b1ae242 Fixed bug#1234
+| | * ca729ab Added cool new feature
+| | * a15ec67 Updated README.txt
+| | * dd68199 Added README.txt
+| * 960a2e7 .gitignore is added
+|/
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+D:\TRAINING\GIT\Fundamentals>git stash list
+stash@{0}: WIP on my_feature2: 2bf5744 added my feature 2
+
+D:\TRAINING\GIT\Fundamentals>git reset --hard HEAD
+HEAD is now at 2bf5744 added my feature 2
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch my_feature2
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>type README.txt
+Hello, Git
+<<<<<<< HEAD
+Hello, again
+updating README.txt with new info
+
+=======
+Updating README with new information
+Committing from an alternate location
+>>>>>> Sharing remotely is fun and easy
+
+Fixing bug#1234
+Another fix to Bug#1234
+
+Feature1
+Feature2
+Feature2 changes
+>>>>>>> origin/master
+
+My Feature2
+
+D:\TRAINING\GIT\Fundamentals>git stash pop
+On branch my_feature2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (f85eb607067657e856f288cb6964b63300f99a14)
+
+D:\TRAINING\GIT\Fundamentals>git stash list
+
+D:\TRAINING\GIT\Fundamentals>git stash
+No local changes to save
+
+D:\TRAINING\GIT\Fundamentals>echo More changes > AdditionalFile.txt
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch my_feature2
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AdditionalFile.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\TRAINING\GIT\Fundamentals>git add AdditionalFile.txt
+
+D:\TRAINING\GIT\Fundamentals>git stash
+Saved working directory and index state WIP on my_feature2: 2bf5744 added my feature 2
+HEAD is now at 2bf5744 added my feature 2
+
+D:\TRAINING\GIT\Fundamentals>git status
+On branch my_feature2
+nothing to commit, working directory clean
+
+D:\TRAINING\GIT\Fundamentals>git stash list
+stash@{0}: WIP on my_feature2: 2bf5744 added my feature 2
+stash@{1}: WIP on my_feature2: 2bf5744 added my feature 2
+
+D:\TRAINING\GIT\Fundamentals>git stash drop
+Dropped refs/stash@{0} (24dff0f1ed7c1dc178bddd3d01c6613d492b51e0)
+
+D:\TRAINING\GIT\Fundamentals>git stash list
+stash@{0}: WIP on my_feature2: 2bf5744 added my feature 2
+
+D:\TRAINING\GIT\Fundamentals>git stash branch my_feature2_additional
+Switched to a new branch 'my_feature2_additional'
+On branch my_feature2_additional
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (8d3eec32a577574046c9ab4a6cf54cc740b8f731)
+
+D:\TRAINING\GIT\Fundamentals>git stash list
+
+D:\TRAINING\GIT\Fundamentals>git commit -am "added additional feature to my_feature2"
+[my_feature2_additional bb13be2] added additional feature to my_feature2
+ 1 file changed, 1 insertion(+)
+
+D:\TRAINING\GIT\Fundamentals>git log
+commit bb13be21ae30b5130ad8870d10363f35cc4a6ec3
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Sun Aug 6 15:22:11 2017 -0600
+
+    added additional feature to my_feature2
+
+commit 2bf57444f7cb5f2c86f4d96d0695fa24b6f009bd
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Sun Aug 6 14:12:22 2017 -0600
+
+    added my feature 2
+
+commit be5da1caef903b926d463731154ba26ac5771837
+Author: Oleks Chemerys <oleks@quick.cz>
+Date:   Sat Aug 5 14:59:50 2017 -0600
+
+    sharing is easy
+.........
+
+D:\TRAINING\GIT\Fundamentals>git lga
+* bb13be2 (HEAD -> my_feature2_additional) added additional feature to my_feature2
+* 2bf5744 (my_feature2) added my feature 2
+| * 4853a5d (bug12345) really fixing bug#12345
+| * 702fb8f fixed bug#12345 in branch my_fix1
+| | * 403bb3c (my_feature_1) added my feature 1
+| |/
+|/|
+* | be5da1c (tag: v1.0_with_message, tag: v1.0, origin/master, master) sharing is easy
+* |   7d136c3 after fetch from remote
+|\ \
+| * \   66d5160 Merge branch 'v1.0_fixes'
+| |\ \
+| | * | ac14082 Added fix2
+| | * | 6fa4324 Added fix1
+| * | | 19bdfeb Added fix1
+| * | | e2d89cf Really fixing Bug#1234
+| * | | 2598e82 Fixed bug#1234
+| * | | c57e469 Added feature3
+| * | |   2790513 Merged feature2_additional into master
+| |\ \ \
+| | * | | 7396103 Added additional features to feature2
+| | * | | a85f845 Added feature2
+| | |/ /
+| * | | 4d5573e Added feature1
+| |/ /
+| * | 2232b2d Sharing is easy
+| * | 9523d95 Updated README.txt from another location
+| * | cacc905 Added .gitignore
+| * | 974b56a Fixed typo in README.txt and added additional information about other features
+| * | b1ae242 Fixed bug#1234
+| * | ca729ab Added cool new feature
+| * | a15ec67 Updated README.txt
+| * | dd68199 Added README.txt
+|  /
+* | 960a2e7 .gitignore is added
+|/
+* d8d5d7e fixed bug in file1.txt and add info to README.txt
+* c8285b7 fixed bug in file2.txt
+* 3d81edf added cool new feature
+* 4319448 updated README.txt by adding a line
+* adb7ffe Changes to be committed:
+
+
+
+
+
+
+
+
